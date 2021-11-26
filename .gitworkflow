@@ -1,0 +1,38 @@
+### Setup
+
+Follow these steps to get set up before starting to define features
+
+- Clone the repository from the Github repository https://github.com/patrickikhidero/Hotel-Management-System.git
+- You will find it only contains a README file and a .gitignore file, .gitworkflow.
+- Create and checkout to a new git branch. And in this branch ...
+- Create the necessary folders, files and start implementation of the feature.
+- Make a commit for your changes in the branch you created earlier and push the branch to remote repository.
+- Visit the repository on Github and notify the team lead about the pull request from the branch you created into main.
+- Team lead now merge the pull requests.
+- Go back to GIT and checkout to master, and pull the merged changes into your local master.
+- So you can now start that cycle again for subsequent implementation
+
+### Git Workflow & TDD
+
+The GIT workflow we will be following here has been briefly explained in the steps above, but to reiterate, the is illustrated below
+
+Local Master -> Local New Branch -> Remote New Branch -> Pull Request -> Remote Master -> Local Master
+
+Now, apart from the Git workflow, we are also following the TDD concept. To explain this, it simply means that we write our test first, run and see it fail, implement the feature to make it pass, now run your test and see it pass.
+
+Write Test -> Run Test and Fail -> Implement Feature -> Run Test and Pass
+
+![Git Workflow](assets/git_workflow.png)
+
+### Git Branch Naming Convention
+
+Naming your branch well is important to help us differentiate the different branches you might have on our repositories be it local or remote.
+
+The format we will be using is:  `<type>-<short desc separated by hyphen>`. The types of branches you can have varies depending on its purpose. So type can be
+
+- Feature: e.g  feature-implement-login
+- Bugfix:   e.g  bug-refactor-login-class
+- Chore:   e.g  chore-setup-devenv
+
+
+## Happing Hacking... 🎉🎉✨✨🎇 ... Building Together
