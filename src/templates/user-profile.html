@@ -1227,7 +1227,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="contact-form-action">
-                        <form method="post">
+                        <form method="post" action="{% url 'signup' %}" >
                             <div class="input-box">
                                 <label class="label-text">Username</label>
                                 <div class="form-group">
@@ -1292,7 +1292,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="contact-form-action">
-                        <form method="post">
+                        <form method="post" action="{% url 'signin' %}">
                             <div class="input-box">
                                 <label class="label-text">Username</label>
                                 <div class="form-group">
