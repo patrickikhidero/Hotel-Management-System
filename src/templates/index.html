@@ -142,7 +142,7 @@
                                 </div><!-- end col-lg-3 -->
                             </form>
                             <div class="btn-box pt-2">
-                                <a href="#" class="theme-btn">Search Now</a>
+                                <a href="{% url 'room-search-result' %}" class="theme-btn">Search Now</a>
                             </div>
                         </div>
                     </div>
@@ -282,7 +282,7 @@
             <div class="col-lg-6">
                 <div class="room-type-content">
                     <div class="image-box">
-                        <a href="#" class="d-block">
+                        <a href="{% url 'room_list' %}" class="d-block">
                             <img src="{% static 'images/img28.jpg' %}" alt="room type img" class="img__item">
                             <div class="room-type-link">
                                 Private Room <i class="la la-arrow-right ml-2"></i>
