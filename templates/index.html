@@ -142,7 +142,7 @@
                                 </div><!-- end col-lg-3 -->
                             </form>
                             <div class="btn-box pt-2">
-                                <a href="{% static 'room-search-result.html' %}" class="theme-btn">Search Now</a>
+                                <a href="{% url 'room-search-result' %}" class="theme-btn">Search Now</a>
                             </div>
                         </div>
                     </div>
@@ -235,7 +235,7 @@
                         <p class="sec__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus amet consectetur ipsa officia. Doloremque error porro sit soluta totam! A iste nobis vel voluptatem!</p>
                     </div><!-- end section-heading -->
                     <div class="btn-box pt-4">
-                        <a href="{% static 'about.html' %}" class="theme-btn">Read More <i class="la la-arrow-right ml-1"></i></a>
+                        <a href="{% url 'about' %}" class="theme-btn">Read More <i class="la la-arrow-right ml-1"></i></a>
                     </div>
                 </div>
             </div><!-- end col-lg-6 -->
@@ -270,7 +270,7 @@
             <div class="col-lg-6">
                 <div class="room-type-content">
                     <div class="image-box">
-                        <a href="{% static 'room-list.html' %}" class="d-block">
+                        <a href="{% url 'room_grid' %}" class="d-block">
                             <img src="{% static 'images/img27.jpg' %}" alt="room type img" class="img__item">
                             <div class="room-type-link">
                                 Dorm Beds <i class="la la-arrow-right ml-2"></i>
@@ -282,7 +282,7 @@
             <div class="col-lg-6">
                 <div class="room-type-content">
                     <div class="image-box">
-                        <a href="{% static 'room-list.html' %}" class="d-block">
+                        <a href="{% url 'room_list' %}" class="d-block">
                             <img src="{% static 'images/img28.jpg' %}" alt="room type img" class="img__item">
                             <div class="room-type-link">
                                 Private Room <i class="la la-arrow-right ml-2"></i>
@@ -316,14 +316,14 @@
                     <div class="hotel-card-carousel-2 carousel-action">
                         <div class="card-item">
                             <div class="card-img">
-                                <a href="{% static 'hotel-single.html' %}" class="d-block">
+                                <a href="{% url 'hotel-single' %}" class="d-block">
                                     <img src="{% static 'images/img1.jpg' %}" alt="hotel-img">
                                 </a>
                                 <span class="badge">Bestseller</span>
                                 <span class="badge badge-ribbon">30% off</span>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{% static 'hotel-single.html' %}">The Millennium Hilton New York</a></h3>
+                                <h3 class="card-title"><a href="{% url 'hotel-single' %}">The Millennium Hilton New York</a></h3>
                                 <p class="card-meta">124 E Huron St, New york</p>
                                 <div class="card-rating">
                                     <span class="badge text-white">4.4/5</span>
@@ -336,18 +336,18 @@
                                         <span class="price__num before-price color-text-3">$120.00</span>
                                         <span class="price__text">Per night</span>
                                     </p>
-                                    <a href="hotel-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                    <a href="{% url 'hotel-single' %}" class="btn-text">See details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card-item -->
                         <div class="card-item">
                             <div class="card-img">
-                                <a href="{% static 'hotel-single.html' %}" class="d-block">
+                                <a href="{% url 'hotel-single' %}" class="d-block">
                                     <img src="{% static 'images/img2.jpg' %}" alt="hotel-img">
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{% static 'hotel-single.html' %}">Best Western Grant Park Hotel</a></h3>
+                                <h3 class="card-title"><a href="{% url 'hotel-single' %}">Best Western Grant Park Hotel</a></h3>
                                 <p class="card-meta">124 E Huron St, Chicago</p>
                                 <div class="card-rating">
                                     <span class="badge text-white">4.4/5</span>
@@ -360,20 +360,20 @@
                                         <span class="price__num">$58.00</span>
                                         <span class="price__text">Per night</span>
                                     </p>
-                                    <a href="{% static 'hotel-single.html' %}" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                    <a href="{% url 'hotel-single' %}" class="btn-text">See details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card-item -->
                         <div class="card-item">
                             <div class="card-img">
-                                <a href="{% static 'hotel-single.html' %}" class="d-block">
+                                <a href="{% url 'hotel-single' %}" class="d-block">
                                     <img src="{% static 'images/img3.jpg' %}" alt="hotel-img">
                                 </a>
                                 <span class="badge">Featured</span>
                                 <span class="badge badge-ribbon">20% off</span>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{% static 'hotel-single.html' %}">Hyatt Regency Maui Resort & Spa</a></h3>
+                                <h3 class="card-title"><a href="{% url 'hotel-single.html' %}">Hyatt Regency Maui Resort & Spa</a></h3>
                                 <p class="card-meta">200 Nohea Kai Dr, Lahaina, HI</p>
                                 <div class="card-rating">
                                     <span class="badge text-white">4.4/5</span>
@@ -386,19 +386,19 @@
                                         <span class="price__num before-price color-text-3">$100.00</span>
                                         <span class="price__text">Per night</span>
                                     </p>
-                                    <a href="{% static 'hotel-single.html' %}" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                    <a href="{% url 'hotel-single' %}" class="btn-text">See details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card-item -->
                         <div class="card-item">
                             <div class="card-img">
-                                <a href="{% static 'hotel-single.html' %}" class="d-block">
+                                <a href="{% url 'hotel-single' %}" class="d-block">
                                     <img src="{% static 'images/img4.jpg' %}" alt="hotel-img">
                                 </a>
                                 <span class="badge">Popular</span>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{% static 'hotel-single.html' %}">Four Seasons Resort Maui at Wailea</a></h3>
+                                <h3 class="card-title"><a href="{% url 'hotel-single' %}">Four Seasons Resort Maui at Wailea</a></h3>
                                 <p class="card-meta">3900 Wailea Alanui Drive, Kihei, HI</p>
                                 <div class="card-rating">
                                     <span class="badge text-white">4.4/5</span>
@@ -411,18 +411,18 @@
                                         <span class="price__num">$88.00</span>
                                         <span class="price__text">Per night</span>
                                     </p>
-                                    <a href="{% static 'hotel-single.html' %}" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                    <a href="{% url 'hotel-single' %}" class="btn-text">See details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card-item -->
                         <div class="card-item">
                             <div class="card-img">
-                                <a href="{% static 'hotel-single.html' %}" class="d-block">
+                                <a href="{% url 'hotel-single' %}" class="d-block">
                                     <img src="{% static 'images/img5.jpg' %}" alt="hotel-img">
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{% static 'hotel-single.html' %}">Ibis Styles London Heathrow</a></h3>
+                                <h3 class="card-title"><a href="{% url 'hotel-single' %}">Ibis Styles London Heathrow</a></h3>
                                 <p class="card-meta"> 272 Bath Road, Harlington, England</p>
                                 <div class="card-rating">
                                     <span class="badge text-white">4.4/5</span>
@@ -435,19 +435,19 @@
                                         <span class="price__num">$88.00</span>
                                         <span class="price__text">Per night</span>
                                     </p>
-                                    <a href="{% static 'hotel-single.html' %}" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                    <a href="{% url 'hotel-single.html' %}" class="btn-text">See details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card-item -->
                         <div class="card-item">
                             <div class="card-img">
-                                <a href="{% static 'hotel-single.html' %}" class="d-block">
+                                <a href="{% url 'hotel-single' %}" class="d-block">
                                     <img src="{% static 'images/img6.jpg' %}" alt="hotel-img">
                                 </a>
                                 <span class="badge badge-ribbon">10% off</span>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{% static 'hotel-single.html' %}">Hotel Europe Saint Severin Paris</a></h3>
+                                <h3 class="card-title"><a href="{% url 'hotel-single' %}">Hotel Europe Saint Severin Paris</a></h3>
                                 <p class="card-meta">38-40 Rue Saint Séverin, Paris, Paris</p>
                                 <div class="card-rating">
                                     <span class="badge text-white">4.4/5</span>
@@ -460,7 +460,7 @@
                                         <span class="price__num before-price color-text-3">$80.00</span>
                                         <span class="price__text">Per night</span>
                                     </p>
-                                    <a href="{% static 'hotel-single.html' %}" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                    <a href="{% url 'hotel-single' %}" class="btn-text">See details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card-item -->
@@ -642,7 +642,7 @@
                                 <a href="#" class="badge">Travel</a>
                                 <a href="#" class="badge">lifestyle</a>
                             </div>
-                            <h3 class="card-title line-height-26"><a href="{% static 'blog-single.html' %}">Best Scandinavian Accommodation – Treat Yourself</a></h3>
+                            <h3 class="card-title line-height-26"><a href="{% url 'blog-single' %}">Best Scandinavian Accommodation – Treat Yourself</a></h3>
                             <p class="card-meta">
                                 <span class="post__date"> 1 January, 2020</span>
                                 <span class="post-dot"></span>
@@ -685,7 +685,7 @@
                             <div class="post-categories">
                                 <a href="#" class="badge">Video</a>
                             </div>
-                            <h3 class="card-title line-height-26"><a href="{% static 'blog-single.html' %}">Amazing Places to Stay in Norway</a></h3>
+                            <h3 class="card-title line-height-26"><a href="{% url 'blog-single' %}">Amazing Places to Stay in Norway</a></h3>
                             <p class="card-meta">
                                 <span class="post__date"> 1 February, 2020</span>
                                 <span class="post-dot"></span>
@@ -728,7 +728,7 @@
                             <div class="post-categories">
                                 <a href="#" class="badge">audio</a>
                             </div>
-                            <h3 class="card-title line-height-26"><a href="{% static 'blog-single.html' %}">Feel Like Home on Your Business Trip</a></h3>
+                            <h3 class="card-title line-height-26"><a href="{% url 'blog-single' %}">Feel Like Home on Your Business Trip</a></h3>
                             <p class="card-meta">
                                 <span class="post__date"> 1 March, 2020</span>
                                 <span class="post-dot"></span>
@@ -911,7 +911,7 @@
                                         <label for="rememberchb">Remember me</label>
                                     </div>
                                     <p class="forgot-password">
-                                        <a href="{% static 'recover.html' %}">Forgot Password?</a>
+                                        <a href="{% url 'recover' %}">Forgot Password?</a>
                                     </p>
                                 </div>
                             </div><!-- end input-box -->

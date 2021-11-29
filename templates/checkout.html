@@ -381,7 +381,7 @@
                                             <div class="form-group mb-0">
                                                 <div class="custom-checkbox mb-0">
                                                     <input type="checkbox" id="receiveChb">
-                                                    <label for="receiveChb">I want to receive Trizen's promotional offers in the future</label>
+                                                    <label for="receiveChb">I want to receive JPEB's promotional offers in the future</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -401,21 +401,21 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" id="credit-card-tab" data-toggle="tab" href="#credit-card" role="tab" aria-controls="credit-card" aria-selected="false">
                                         <i class="la la-check icon-element"></i>
-                                        <img src="images/payment-img.png" alt="">
+                                        <img src="{% static 'images/payment-img.png' %}" alt="">
                                         <span class="d-block pt-2">Payment with credit card</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="paypal-tab" data-toggle="tab" href="#paypal" role="tab" aria-controls="paypal" aria-selected="true">
                                         <i class="la la-check icon-element"></i>
-                                        <img src="images/paypal.png" alt="">
+                                        <img src="{% static 'images/paypal.png' %}" alt="">
                                         <span class="d-block pt-2">Payment with PayPal</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="payoneer-tab" data-toggle="tab" href="#payoneer" role="tab" aria-controls="payoneer" aria-selected="true">
                                         <i class="la la-check icon-element"></i>
-                                        <img src="images/payoneer.png" alt="">
+                                        <img src="{% static 'images/payoneer.png' %}" alt="">
                                         <span class="d-block pt-2">Payment with payoneer</span>
                                     </a>
                                 </li>
@@ -568,7 +568,7 @@
                     <div class="form-content">
                         <div class="card-item shadow-none radius-none mb-0">
                             <div class="card-img pb-4">
-                                <a href="room-details.html" class="d-block">
+                                <a href="{% url 'room_details' %}" class="d-block">
                                     <img src="{% static 'images/img5.jpg' %}" alt="room-img">
                                 </a>
                             </div>
@@ -579,7 +579,7 @@
                                         <p class="card-meta">Mariana's hotel, Mexico</p>
                                     </div>
                                     <div>
-                                        <a href="{% static 'room-details.html' %}" class="btn ml-1"><i class="la la-edit" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>
+                                        <a href="{% url 'room_details' %}" class="btn ml-1"><i class="la la-edit" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>
                                     </div>
                                 </div>
                                 <div class="section-block"></div>

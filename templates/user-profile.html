@@ -51,7 +51,7 @@
                     <div class="menu-wrapper">
                         <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
                         <div class="logo">
-                            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                            <a href="{% url 'index.html' %}"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
                             <div class="menu-toggler">
                                 <i class="la la-bars"></i>
                                 <i class="la la-times"></i>
@@ -65,7 +65,7 @@
                                         
                                     </li>
                                     <li>
-                                        <a href="{% static 'room-grid.html' %}">Rooms <i class=""></i></a>
+                                        <a href="{% url'room-grid' %}">Rooms <i class=""></i></a>
                                         
                                     </li>
                                 </ul>
@@ -160,13 +160,13 @@
                         <div class="my-service-list">
                             <div class="card-item card-item-list">
                                 <div class="card-img">
-                                    <a href="{% static 'hotel-single.html' %}" class="d-block">
+                                    <a href="{% 'hotel-single' %}" class="d-block">
                                         <img src="{% static 'images/img1.jpg' %}" alt="hotel-img">
                                     </a>
                                     <span class="badge">Featured</span>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{% static 'hotel-single.html' %}">The Millennium Hilton New York</a></h3>
+                                    <h3 class="card-title"><a href="{% url'hotel-single' %}">The Millennium Hilton New York</a></h3>
                                     <p class="card-meta">124 E Huron St, New york</p>
                                     <div class="card-rating d-flex align-items-center pt-1">
                                         <span class="rating__text">Hotel star</span>
@@ -184,18 +184,18 @@
                                             <span class="price__from">Price from</span>
                                             <span class="price__num">$00.00</span>
                                         </p>
-                                        <a href="{% static 'hotel-single.html' %}" class="theme-btn theme-btn-small">Book Now</a>
+                                        <a href="{% url 'hotel-single' %}" class="theme-btn theme-btn-small">Book Now</a>
                                     </div>
                                 </div>
                             </div><!-- end card-item -->
                             <div class="card-item card-item-list">
                                 <div class="card-img">
-                                    <a href="{% static 'hotel-single.html' %}" class="d-block">
+                                    <a href="{% url 'hotel-single' %}" class="d-block">
                                         <img src="{% static 'images/img2.jpg' %}" alt="hotel-img">
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{% static 'hotel-single.html' %}">Hyatt Centric Times Square New York</a></h3>
+                                    <h3 class="card-title"><a href="{% url 'hotel-single' %}">Hyatt Centric Times Square New York</a></h3>
                                     <p class="card-meta">6782 Sarasea Circle, Siesta Key, Paris</p>
                                     <div class="card-rating d-flex align-items-center pt-1">
                                         <span class="rating__text">Hotel star</span>
@@ -213,19 +213,19 @@
                                             <span class="price__from">Price from</span>
                                             <span class="price__num">$00.00</span>
                                         </p>
-                                        <a href="{% static 'hotel-single.html' %}" class="theme-btn theme-btn-small">Book Now</a>
+                                        <a href="{% url 'hotel-single' %}" class="theme-btn theme-btn-small">Book Now</a>
                                     </div>
                                 </div>
                             </div><!-- end card-item -->
                             <div class="card-item card-item-list">
                                 <div class="card-img">
-                                    <a href="{% static 'hotel-single.html' %}" class="d-block">
+                                    <a href="{% url 'hotel-single' %}" class="d-block">
                                         <img src="{% static 'images/img3.jpg' %}" alt="hotel-img">
                                     </a>
                                     <span class="badge">Featured</span>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="{% static 'hotel-single.html' %}">Hotel WBF Kitasemba WEST</a></h3>
+                                    <h3 class="card-title"><a href="{% url 'hotel-single.html' %}">Hotel WBF Kitasemba WEST</a></h3>
                                     <p class="card-meta">6782 Sarasea Circle, Siesta Key, Paris</p>
                                     <div class="card-rating d-flex align-items-center pt-1">
                                         <span class="rating__text">Hotel star</span>
