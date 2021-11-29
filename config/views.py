@@ -49,3 +49,12 @@ def user_dashboard(request):
 def user_profile(request):
     return render(request, 'user-profile.html')
 
+
+
+def homepage(request):
+    return render(request, 'index.html')
+    # return HttpResponse("Hello")
+
+
+def about(request):
+    return render(request, 'about.html')
