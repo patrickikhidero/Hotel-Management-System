@@ -9,11 +9,11 @@
 <div class="header">
 
 <div class="header-left">
-<a href="index.html" class="logo">
+<a href="{% url 'adminhome' %}" class="logo">
 <img src="{% static 'assets/img/hotel_logo.png' %}" width="50" height="70" alt="logo">
 <span class="logoclass">JPEB</span>
 </a>
-<a href="index.html" class="logo logo-small">
+<a href="{% url 'adminhome' %}" class="logo logo-small">
 <img src="{% static 'assets/img/hotel_logo.png' %}" alt="Logo" width="30" height="30">
 </a>
 </div>
@@ -147,39 +147,39 @@ MacBook Pro</span></p>
 <div id="sidebar-menu" class="sidebar-menu">
 <ul>
 <li class="active">
-<a href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+<a href="{% url 'adminhome' %}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
 </li>
 <li class="list-divider"></li>
 <li class="submenu">
 <a href="#"><i class="fas fa-suitcase"></i> <span> Booking </span> <span class="menu-arrow"></span></a>
 <ul class="submenu_class" style="display: none;">
 <li><a href="all-booking.html"> All Booking </a></li>
-<li><a href="edit-booking.html"> Edit Booking </a></li>
-<li><a href="add-booking.html"> Add Booking </a></li>
+<li><a href="{% url 'edit_booking' %}"> Edit Booking </a></li>
+<li><a href="{% url 'add_booking' %}"> Add Booking </a></li>
 </ul>
 </li>
 <li class="submenu">
 <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
 <ul class="submenu_class" style="display: none;">
 <li><a href="all-customer.html"> All customers </a></li>
-<li><a href="edit-customer.html"> Edit Customer </a></li>
-<li><a href="add-customer.html"> Add Customer </a></li>
+<li><a href="{% url 'edit_customer' %}"> Edit Customer </a></li>
+<li><a href="{% url 'add_customer' %}"> Add Customer </a></li>
 </ul>
 </li>
 <li class="submenu">
 <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
 <ul class="submenu_class" style="display: none;">
 <li><a href="all-rooms.html">All Rooms </a></li>
-<li><a href="edit-room.html"> Edit Rooms </a></li>
-<li><a href="add-room.html"> Add Rooms </a></li>
+<li><a href="{% url 'edit_room' %}"> Edit Rooms </a></li>
+<li><a href="{% url 'add_room' %}"> Add Rooms </a></li>
 </ul>
 </li>
 <li class="submenu">
 <a href="#"><i class="fas fa-user"></i> <span> Staff </span> <span class="menu-arrow"></span></a>
 <ul class="submenu_class" style="display: none;">
 <li><a href="all-staff.html">All Staff </a></li>
-<li><a href="edit-staff.html"> Edit Staff </a></li>
-<li><a href="add-staff.html"> Add Staff </a></li>
+<li><a href="{% url 'edit_staff' %}"> Edit Staff </a></li>
+<li><a href="{% url 'add_staff' %}"> Add Staff </a></li>
 </ul>
 </li>
 <li>
