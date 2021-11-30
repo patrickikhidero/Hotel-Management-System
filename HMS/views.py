@@ -22,25 +22,25 @@ def cart(request):
     return render(request, 'cart.html')
 
 def checkout(request):
-    return render(request, 'checkout.html', {})
+    return render(request, 'checkout.html')
 
 def contact(request):
-    return render(request, 'contact.html', {})
+    return render(request, 'contact.html')
 
 def page_404(request):
-    return render(request, 'page-404.html', {})
+    return render(request, 'page-404.html')
 
 def payment_complete(request):
-    return render(request, 'payment-complete.html', {})
+    return render(request, 'payment-complete.html')
 
 def payment_received(request):
-    return render(request, 'payment-received.html', {})
+    return render(request, 'payment-received.html')
 
 def room_details(request):
-    return render(request, 'room-details.html', {})
+    return render(request, 'room_details.html')
 
 def room_grid(request):
-    return render(request, 'room-grid.html', {})
+    return render(request, 'room-grid.html')
 
 def user_dashboard_booking(request):
     return render(request, 'user-dashboard-booking.html')
