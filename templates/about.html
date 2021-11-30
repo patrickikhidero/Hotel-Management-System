@@ -1,31 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="author" content="TechyDevs">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JPEB - Hotel</title>
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.png">
+ {% extends 'base.html' %}
+{% load static %}
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+{% block content %}
 
-    <!-- Template CSS Files -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="css/line-awesome.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/daterangepicker.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/animated-headline.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/flag-icon.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
 <body>
 <!-- start cssload-loader -->
 <div class="preloader" id="preloader">
@@ -37,74 +14,7 @@
 </div>
 <!-- end cssload-loader -->
 
-<!-- ================================
-            START HEADER AREA
-================================= -->
-<header class="header-area">
-    <div class="header-top-bar padding-right-100px padding-left-100px">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="header-top-content">
-                        <div class="header-left">
-                            <ul class="list-items">
-                                <li><a href="#"><i class="la la-phone mr-1"></i>(123) 123-456</a></li>
-                                <li><a href="#"><i class="la la-envelope mr-1"></i>contact@jpeb.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="header-top-content">
-                        <div class="header-right d-flex align-items-center justify-content-end">
-                             
-                            <div class="header-right-action">
-                                <a href="#" class="theme-btn theme-btn-small theme-btn-transparent mr-1" data-toggle="modal" data-target="#signupPopupForm">Sign Up</a>
-                                 <a href="#" class="theme-btn theme-btn-small" data-toggle="modal" data-target="#loginPopupForm">Login</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="header-menu-wrapper padding-right-100px padding-left-100px">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="menu-wrapper">
-                        <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
-                        <div class="logo">
-                            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
-                            <div class="menu-toggler">
-                                <i class="la la-bars"></i>
-                                <i class="la la-times"></i>
-                            </div><!-- end menu-toggler -->
-                        </div><!-- end logo -->
-                         <div class="main-menu-content pr-0 ml-0">
-                            <nav>
-                                <ul>
-                                    <li>
-                                        <a href="#">Home <i class=""></i></a>
-                                        
-                                    </li>
-                                    <li>
-                                        <a href="room-grid.html">Rooms <i class=""></i></a>
-                                        
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div><!-- end main-menu-content -->
-                         <!-- end nav-btn -->
-                    </div><!-- end menu-wrapper -->
-                </div><!-- end col-lg-12 -->
-            </div><!-- end row -->
-        </div><!-- end container-fluid -->
-    </div><!-- end header-menu-wrapper -->
-</header>
-<!-- ================================
-         END HEADER AREA
-================================= -->
+
 
 <!-- ================================
     START BREADCRUMB AREA
@@ -116,7 +26,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb-content">
                         <div class="section-heading">
-                            <h2 class="sec__title line-height-50 text-white">Trizen.com is Your Trusted <br> Travel Companion.</h2>
+                            <h2 class="sec__title line-height-50 text-white">JPEB.com is Your Trusted <br> Travel Companion.</h2>
                         </div>
                     </div><!-- end breadcrumb-content -->
                 </div><!-- end col-lg-12 -->
@@ -140,7 +50,7 @@
             <div class="col-lg-4 responsive-column">
                 <div class="card-item" data-toggle="tooltip" data-placement="top" title="hello word">
                     <div class="card-img">
-                        <img src="images/img21.jpg" alt="about-img">
+                        <img src="{% static 'images/img21.jpg' %}" alt="about-img">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title mb-2">Who We Are?</h3>
@@ -153,7 +63,7 @@
             <div class="col-lg-4 responsive-column">
                 <div class="card-item ">
                     <div class="card-img">
-                        <img src="images/img22.jpg" alt="about-img">
+                        <img src="{% static 'images/img22.jpg' %}" alt="about-img">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title mb-2">What We Do?</h3>
@@ -166,7 +76,7 @@
             <div class="col-lg-4 responsive-column">
                 <div class="card-item ">
                     <div class="card-img">
-                        <img src="images/img23.jpg" alt="about-img">
+                        <img src="{% static 'images/img23.jpg' %}" alt="about-img">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title mb-2">Our Mission</h3>
@@ -200,8 +110,8 @@
             </div><!-- end col-lg-6 -->
             <div class="col-lg-5 ml-auto">
                 <div class="image-box about-img-box">
-                    <img src="images/img24.jpg" alt="about-img" class="img__item img__item-1">
-                    <img src="images/img25.jpg" alt="about-img" class="img__item img__item-2">
+                    <img src="{% static 'images/img24.jpg' %}" alt="about-img" class="img__item img__item-1">
+                    <img src="{% static 'images/img25.jpg' %}" alt="about-img" class="img__item img__item-2">
                 </div>
             </div><!-- end col-lg-5 -->
         </div><!-- end row -->
@@ -311,11 +221,11 @@
                         </div>
                         <div class="author-content d-flex align-items-center">
                             <div class="author-img">
-                                <img src="images/team8.jpg" alt="testimonial image">
+                                <img src="{% static 'images/team8.jpg' %}" alt="testimonial image">
                             </div>
                             <div class="author-bio">
                                 <h4 class="author__title">Leroy Bell</h4>
-                                <span class="author__meta">United States</span>
+                                <span class="author__meta">Benin Republic</span>
                                 <span class="ratings d-flex align-items-center">
                                     <i class="la la-star"></i>
                                     <i class="la la-star"></i>
@@ -332,10 +242,10 @@
                         </div>
                         <div class="author-content d-flex align-items-center">
                             <div class="author-img">
-                                <img src="images/team9.jpg" alt="testimonial image">
+                                <img src="{% static 'images/team9.jpg' %}" alt="testimonial image">
                             </div>
                             <div class="author-bio">
-                                <h4 class="author__title">Richard Pam</h4>
+                                <h4 class="author__title">Richard Patoricoh</h4>
                                 <span class="author__meta">Canada</span>
                                 <span class="ratings d-flex align-items-center">
                                     <i class="la la-star"></i>
@@ -353,7 +263,7 @@
                         </div>
                         <div class="author-content d-flex align-items-center">
                             <div class="author-img">
-                                <img src="images/team10.jpg" alt="testimonial image">
+                                <img src="{% static 'images/team10.jpg' %}" alt="testimonial image">
                             </div>
                             <div class="author-bio">
                                 <h4 class="author__title">Luke Jacobs</h4>
@@ -374,7 +284,7 @@
                         </div>
                         <div class="author-content d-flex align-items-center">
                             <div class="author-img">
-                                <img src="images/team8.jpg" alt="testimonial image">
+                                <img src="{% static 'images/team8.jpg' %}" alt="testimonial image">
                             </div>
                             <div class="author-bio">
                                 <h4 class="author__title">Chulbul Panday</h4>
@@ -414,7 +324,7 @@
             <div class="col-lg-4 responsive-column">
                 <div class="card-item team-card">
                     <div class="card-img">
-                        <img src="images/team1.jpg" alt="team-img">
+                        <img src="{% static 'images/team1.jpg' %}" alt="team-img">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">David Roberts</h3>
@@ -432,7 +342,7 @@
             <div class="col-lg-4 responsive-column">
                 <div class="card-item team-card">
                     <div class="card-img">
-                        <img src="images/team2.jpg" alt="team-img">
+                        <img src="{% static 'images/team2.jpg' %}" alt="team-img">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">Augusta Silva</h3>
@@ -450,7 +360,7 @@
             <div class="col-lg-4 responsive-column">
                 <div class="card-item team-card">
                     <div class="card-img">
-                        <img src="images/team3.jpg" alt="team-img">
+                        <img src="{% static 'images/team3.jpg' %}" alt="team-img">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">Bernice Lucas</h3>
@@ -468,7 +378,7 @@
              <div class="col-lg-4 responsive-column">
                 <div class="card-item team-card">
                     <div class="card-img">
-                        <img src="images/team4.jpg" alt="team-img">
+                        <img src="{% static 'images/team4.jpg' %}" alt="team-img">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">David Jackson</h3>
@@ -486,7 +396,7 @@
             <div class="col-lg-4 responsive-column">
                 <div class="card-item team-card">
                     <div class="card-img">
-                        <img src="images/team5.jpg" alt="team-img">
+                        <img src="{% static 'images/team5.jpg' %}" alt="team-img">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">Kyle Martin</h3>
@@ -504,7 +414,7 @@
             <div class="col-lg-4 responsive-column">
                 <div class="card-item team-card">
                     <div class="card-img">
-                        <img src="images/team6.jpg" alt="team-img">
+                        <img src="{% static 'images/team6.jpg' %}" alt="team-img">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">Evan Porter</h3>
@@ -550,116 +460,6 @@
     END CTA AREA
 ================================= -->
 
-<!-- ================================
-       START FOOTER AREA
-================================= -->
-<section class="footer-area section-bg padding-top-100px padding-bottom-30px">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 responsive-column">
-                <div class="footer-item">
-                    <div class="footer-logo padding-bottom-30px">
-                        <a href="index.html" class="foot__logo"><img src="images/logo.png" alt="logo"></a>
-                    </div><!-- end logo -->
-                    <p class="footer__desc">Morbi convallis bibendum urna ut viverra. Maecenas consequat</p>
-                    <ul class="list-items pt-3">
-                        <li>3015 Grand Ave, Coconut Grove,<br> Cerrick Way, FL 12345</li>
-                        <li>+123-456-789</li>
-                        <li><a href="#">info@jpeb.com</a></li>
-                    </ul>
-                </div><!-- end footer-item -->
-            </div><!-- end col-lg-3 -->
-            <div class="col-lg-3 responsive-column">
-                <div class="footer-item">
-                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Company</h4>
-                    <ul class="list-items list--items">
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="#">Jobs</a></li>
-                        <li><a href="blog-grid.html">News</a></li>
-                        <li><a href="contact.html">Support</a></li>
-                        <li><a href="#">Advertising</a></li>
-                    </ul>
-                </div><!-- end footer-item -->
-            </div><!-- end col-lg-3 -->
-            <div class="col-lg-3 responsive-column">
-                <div class="footer-item">
-                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Other Links</h4>
-                    <ul class="list-items list--items">
-                        <li><a href="#">USA Vacation Packages</a></li>
-                        <li><a href="#">USA Flights</a></li>
-                        <li><a href="#">USA Hotels</a></li>
-                        <li><a href="#">USA Car Hire</a></li>
-                        <li><a href="#">Create an Account</a></li>
-                        <li><a href="#">Trizen Reviews</a></li>
-                    </ul>
-                </div><!-- end footer-item -->
-            </div><!-- end col-lg-3 -->
-            <div class="col-lg-3 responsive-column">
-                <div class="footer-item">
-                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Subscribe now</h4>
-                    <p class="footer__desc pb-3">Subscribe for latest updates & promotions</p>
-                    <div class="contact-form-action">
-                        <form action="#">
-                            <div class="input-box">
-                                <label class="label-text">Enter email address</label>
-                                <div class="form-group mb-0">
-                                    <span class="la la-envelope form-icon"></span>
-                                    <input class="form-control" type="email" name="email" placeholder="Email address">
-                                    <button class="theme-btn theme-btn-small submit-btn" type="submit">Go</button>
-                                    <span class="font-size-14 pt-1"><i class="la la-lock mr-1"></i>Your information is safe with us.</span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div><!-- end footer-item -->
-            </div><!-- end col-lg-3 -->
-        </div><!-- end row -->
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <div class="term-box footer-item">
-                    <ul class="list-items list--items d-flex align-items-center">
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Help Center</a></li>
-                    </ul>
-                </div>
-            </div><!-- end col-lg-8 -->
-            <div class="col-lg-4">
-                <div class="footer-social-box text-right">
-                    <ul class="social-profile">
-                        <li><a href="#"><i class="lab la-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="lab la-twitter"></i></a></li>
-                        <li><a href="#"><i class="lab la-instagram"></i></a></li>
-                        <li><a href="#"><i class="lab la-linkedin-in"></i></a></li>
-                    </ul>
-                </div>
-            </div><!-- end col-lg-4 -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-    <div class="section-block mt-4"></div>
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <div class="copy-right padding-top-30px">
-                    <p class="copy__desc">
-                        &copy; Copyright  JPEB 2021. Made with
-                        <span class="la la-heart"></span> by <a href="https://jpeg.com">JPEB Developers</a>
-                    </p>
-                </div><!-- end copy-right -->
-            </div><!-- end col-lg-7 -->
-            <div class="col-lg-5">
-                <div class="copy-right-content d-flex align-items-center justify-content-end padding-top-30px">
-                    <h3 class="title font-size-15 pr-2">We Accept</h3>
-                    <img src="images/payment-img.png" alt="">
-                </div><!-- end copy-right-content -->
-            </div><!-- end col-lg-5 -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</section><!-- end footer-area -->
-<!-- ================================
-       START FOOTER AREA
-================================= -->
 
 <!-- start back-to-top -->
 <div id="back-to-top">
@@ -768,7 +568,7 @@
                                         <label for="rememberchb">Remember me</label>
                                     </div>
                                     <p class="forgot-password">
-                                        <a href="recover.html">Forgot Password?</a>
+                                        <a href="">Forgot Password?</a>
                                     </p>
                                 </div>
                             </div><!-- end input-box -->
@@ -793,18 +593,4 @@
 </div><!-- end modal-popup -->
 
 <!-- Template JS Files -->
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-select.min.js"></script>
-<script src="js/moment.min.js"></script>
-<script src="js/daterangepicker.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.fancybox.min.js"></script>
-<script src="js/jquery.countTo.min.js"></script>
-<script src="js/animated-headline.js"></script>
-<script src="js/jquery.ripples-min.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
+{% endblock content %}

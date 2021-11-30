@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="author" content="TechyDevs">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JPEB - Hotel</title>
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.png">
+ {% extends 'base.html' %}
+{% load static %}
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- Template CSS Files -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="css/line-awesome.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/daterangepicker.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/animated-headline.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/flag-icon.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+{% block content %}
 <body>
 <!-- start cssload-loader -->
 <div class="preloader" id="preloader">
@@ -75,7 +51,7 @@
                     <div class="menu-wrapper">
                         <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
                         <div class="logo">
-                            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                            <a href="{% url 'index.html' %}"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
                             <div class="menu-toggler">
                                 <i class="la la-bars"></i>
                                 <i class="la la-times"></i>
@@ -89,7 +65,7 @@
                                         
                                     </li>
                                     <li>
-                                        <a href="room-grid.html">Rooms <i class=""></i></a>
+                                        <a href="{% url'room-grid' %}">Rooms <i class=""></i></a>
                                         
                                     </li>
                                 </ul>
@@ -116,7 +92,7 @@
                <h3 class="title font-size-24">Partner Information</h3>
                 <div class="card-item user-card card-item-list mt-4 mb-0">
                     <div class="card-img">
-                        <img src="images/team7.jpg" alt="user image" class="h-auto">
+                        <img src="{% static 'images/team7.jpg' %}" alt="user image" class="h-auto">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">TechyDevs</h3>
@@ -184,13 +160,13 @@
                         <div class="my-service-list">
                             <div class="card-item card-item-list">
                                 <div class="card-img">
-                                    <a href="hotel-single.html" class="d-block">
-                                        <img src="images/img1.jpg" alt="hotel-img">
+                                    <a href="{% 'hotel-single' %}" class="d-block">
+                                        <img src="{% static 'images/img1.jpg' %}" alt="hotel-img">
                                     </a>
                                     <span class="badge">Featured</span>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="hotel-single.html">The Millennium Hilton New York</a></h3>
+                                    <h3 class="card-title"><a href="{% url'hotel-single' %}">The Millennium Hilton New York</a></h3>
                                     <p class="card-meta">124 E Huron St, New york</p>
                                     <div class="card-rating d-flex align-items-center pt-1">
                                         <span class="rating__text">Hotel star</span>
@@ -208,18 +184,18 @@
                                             <span class="price__from">Price from</span>
                                             <span class="price__num">$00.00</span>
                                         </p>
-                                        <a href="hotel-single.html" class="theme-btn theme-btn-small">Book Now</a>
+                                        <a href="#" class="theme-btn theme-btn-small">Book Now</a>
                                     </div>
                                 </div>
                             </div><!-- end card-item -->
                             <div class="card-item card-item-list">
                                 <div class="card-img">
-                                    <a href="hotel-single.html" class="d-block">
-                                        <img src="images/img2.jpg" alt="hotel-img">
+                                    <a href="#" class="d-block">
+                                        <img src="{% static 'images/img2.jpg' %}" alt="hotel-img">
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="hotel-single.html">Hyatt Centric Times Square New York</a></h3>
+                                    <h3 class="card-title"><a href="#">Hyatt Centric Times Square New York</a></h3>
                                     <p class="card-meta">6782 Sarasea Circle, Siesta Key, Paris</p>
                                     <div class="card-rating d-flex align-items-center pt-1">
                                         <span class="rating__text">Hotel star</span>
@@ -237,19 +213,19 @@
                                             <span class="price__from">Price from</span>
                                             <span class="price__num">$00.00</span>
                                         </p>
-                                        <a href="hotel-single.html" class="theme-btn theme-btn-small">Book Now</a>
+                                        <a href="#" class="theme-btn theme-btn-small">Book Now</a>
                                     </div>
                                 </div>
                             </div><!-- end card-item -->
                             <div class="card-item card-item-list">
                                 <div class="card-img">
-                                    <a href="hotel-single.html" class="d-block">
-                                        <img src="images/img3.jpg" alt="hotel-img">
+                                    <a href="#" class="d-block">
+                                        <img src="{% static 'images/img3.jpg' %}" alt="hotel-img">
                                     </a>
                                     <span class="badge">Featured</span>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="hotel-single.html">Hotel WBF Kitasemba WEST</a></h3>
+                                    <h3 class="card-title"><a href="#">Hotel WBF Kitasemba WEST</a></h3>
                                     <p class="card-meta">6782 Sarasea Circle, Siesta Key, Paris</p>
                                     <div class="card-rating d-flex align-items-center pt-1">
                                         <span class="rating__text">Hotel star</span>
@@ -267,19 +243,19 @@
                                             <span class="price__from">Price from</span>
                                             <span class="price__num">$00.00</span>
                                         </p>
-                                        <a href="hotel-single.html" class="theme-btn theme-btn-small">Book Now</a>
+                                        <a href="{% static 'hotel-single.html' %}" class="theme-btn theme-btn-small">Book Now</a>
                                     </div>
                                 </div>
                             </div><!-- end card-item -->
                             <div class="card-item card-item-list">
                                 <div class="card-img">
-                                    <a href="hotel-single.html" class="d-block">
-                                        <img src="images/img4.jpg" alt="hotel-img">
+                                    <a href="{% static 'hotel-single.html' %}" class="d-block">
+                                        <img src="{% static 'images/img4.jpg' %}" alt="hotel-img">
                                     </a>
                                     <span class="badge">Featured</span>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="hotel-single.html">Hotel Monterey Le Frere Osaka</a></h3>
+                                    <h3 class="card-title"><a href="{% static 'hotel-single.html' %}">Hotel Monterey Le Frere Osaka</a></h3>
                                     <p class="card-meta">124 E Huron St, New york</p>
                                     <div class="card-rating d-flex align-items-center pt-1">
                                         <span class="rating__text">Hotel star</span>
@@ -297,7 +273,7 @@
                                             <span class="price__from">Price from</span>
                                             <span class="price__num">$00.00</span>
                                         </p>
-                                        <a href="hotel-single.html" class="theme-btn theme-btn-small">Book Now</a>
+                                        <a href="{% static 'hotel-single.html' %}" class="theme-btn theme-btn-small">Book Now</a>
                                     </div>
                                 </div>
                             </div><!-- end card-item -->
@@ -328,13 +304,13 @@
                         <div class="my-service-list">
                             <div class="card-item card-item-list card-item--list">
                                 <div class="card-img">
-                                    <a href="tour-details.html" class="d-block">
-                                        <img src="images/img9.jpg" alt="Destination-img">
+                                    <a href="{% static 'tour-details.html' %}" class="d-block">
+                                        <img src="{% static 'images/img9.jpg' %}" alt="Destination-img">
                                     </a>
                                     <span class="badge">Featured</span>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="tour-details.html">A Paris walk to Remember</a></h3>
+                                    <h3 class="card-title"><a href="{% static 'tour-details.html' %}">A Paris walk to Remember</a></h3>
                                     <p class="card-meta">124 E Huron St, New york</p>
                                     <div class="card-rating d-flex align-items-center pt-0">
                                         <span class="ratings d-flex align-items-center mr-2">
@@ -357,19 +333,19 @@
                                             <span class="price__from">Price from</span>
                                             <span class="price__num">$989.00</span>
                                         </p>
-                                        <a href="tour-details.html" class="theme-btn theme-btn-small">Book Now</a>
+                                        <a href="{% static 'tour-details.html' %}" class="theme-btn theme-btn-small">Book Now</a>
                                     </div>
                                 </div>
                             </div><!-- end card-item -->
                             <div class="card-item card-item-list card-item--list">
                                 <div class="card-img">
-                                    <a href="tour-details.html" class="d-block">
-                                        <img src="images/img10.jpg" alt="Destination-img">
+                                    <a href="{% static 'tour-details.html' %}" class="d-block">
+                                        <img src="{% static 'images/img10.jpg' %}" alt="Destination-img">
                                     </a>
                                     <span class="badge badge-ribbon">Save 39%</span>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="tour-details.html">London to Florence in 10 Days</a></h3>
+                                    <h3 class="card-title"><a href="{% static 'tour-details.html' %}">London to Florence in 10 Days</a></h3>
                                     <p class="card-meta">124 E Huron St, New york</p>
                                     <div class="card-rating d-flex align-items-center pt-0">
                                         <span class="ratings d-flex align-items-center mr-2">
@@ -392,18 +368,18 @@
                                             <span class="price__num">$950.00</span>
                                             <span class="price__num before-price color-text-3">$989.00</span>
                                         </p>
-                                        <a href="tour-details.html" class="theme-btn theme-btn-small">Book Now</a>
+                                        <a href="{% static 'tour-details.html' %}" class="theme-btn theme-btn-small">Book Now</a>
                                     </div>
                                 </div>
                             </div><!-- end card-item -->
                             <div class="card-item card-item-list card-item--list">
                                 <div class="card-img">
-                                    <a href="tour-details.html" class="d-block">
-                                        <img src="images/img11.jpg" alt="Destination-img">
+                                    <a href="{% static 'tour-details.html' %}" class="d-block">
+                                        <img src="{% static 'images/img11.jpg' %}" alt="Destination-img">
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="tour-details.html">River Cruise Tour on the Seine</a></h3>
+                                    <h3 class="card-title"><a href="{% static 'tour-details.html' %}">River Cruise Tour on the Seine</a></h3>
                                     <p class="card-meta">124 E Huron St, New york</p>
                                     <div class="card-rating d-flex align-items-center pt-0">
                                         <span class="ratings d-flex align-items-center mr-2">
@@ -426,19 +402,19 @@
                                             <span class="price__from">Price from</span>
                                             <span class="price__num">$989.00</span>
                                         </p>
-                                        <a href="tour-details.html" class="theme-btn theme-btn-small">Book Now</a>
+                                        <a href="{% static 'tour-details.html' %}" class="theme-btn theme-btn-small">Book Now</a>
                                     </div>
                                 </div>
                             </div><!-- end card-item -->
                             <div class="card-item card-item-list card-item--list">
                                 <div class="card-img">
-                                    <a href="tour-details.html" class="d-block">
-                                        <img src="images/img12.jpg" alt="Destination-img">
+                                    <a href="{% static 'tour-details.html' %}" class="d-block">
+                                        <img src="{% static 'images/img12.jpg' %}" alt="Destination-img">
                                     </a>
                                     <span class="badge">Featured</span>
                                 </div>
                                 <div class="card-body">
-                                    <h3 class="card-title"><a href="tour-details.html">3-Day Loire Mer Extraordinaire</a></h3>
+                                    <h3 class="card-title"><a href="{% static 'tour-details.html' %}">3-Day Loire Mer Extraordinaire</a></h3>
                                     <p class="card-meta">Champs-Elysées, 8ème 5 rue de Berri</p>
                                     <div class="card-rating d-flex align-items-center pt-0">
                                         <span class="ratings d-flex align-items-center mr-2">
@@ -1228,110 +1204,6 @@
 ================================= -->
 
 
-<!-- ================================
-       START FOOTER AREA
-================================= -->
-<section class="footer-area section-bg padding-top-100px padding-bottom-30px">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 responsive-column-td-6">
-                <div class="footer-item">
-                    <div class="footer-logo padding-bottom-30px">
-                        <a href="index.html" class="foot__logo"><img src="images/logo.png" alt="logo"></a>
-                    </div><!-- end logo -->
-                    <p class="footer__desc">Morbi convallis bibendum urna ut viverra. Maecenas consequat</p>
-                    <ul class="list-items pt-3">
-                        <li>3015 Grand Ave, Coconut Grove,<br> Cerrick Way, FL 12345</li>
-                        <li>+123-456-789</li>
-                        <li><a href="#">info@jpeb.com</a></li>
-                    </ul>
-                </div><!-- end footer-item -->
-            </div><!-- end col-lg-3 -->
-            <div class="col-lg-3 responsive-column-td-6">
-                <div class="footer-item">
-                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Company</h4>
-                    <ul class="list-items list--items">
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="#">Jobs</a></li>
-                        <li><a href="blog-grid.html">News</a></li>
-                        <li><a href="contact.html">Support</a></li>
-                        <li><a href="#">Advertising</a></li>
-                    </ul>
-                </div><!-- end footer-item -->
-            </div><!-- end col-lg-3 -->
-            <div class="col-lg-3 responsive-column-td-6">
-                <div class="footer-item">
-                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Other Services</h4>
-                    <ul class="list-items list--items">
-                        <li><a href="#">Investor Relations</a></li>
-                        <li><a href="#">Trizen.com Rewards</a></li>
-                        <li><a href="#">Partners</a></li>
-                        <li><a href="#">List My Hotel</a></li>
-                        <li><a href="#">All Hotels</a></li>
-                        <li><a href="#">TV Ads</a></li>
-                    </ul>
-                </div><!-- end footer-item -->
-            </div><!-- end col-lg-3 -->
-            <div class="col-lg-3 responsive-column-td-6">
-                <div class="footer-item">
-                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Other Links</h4>
-                    <ul class="list-items list--items">
-                        <li><a href="#">USA Vacation Packages</a></li>
-                        <li><a href="#">USA Flights</a></li>
-                        <li><a href="#">USA Hotels</a></li>
-                        <li><a href="#">USA Car Hire</a></li>
-                        <li><a href="#">Create an Account</a></li>
-                        <li><a href="#">Trizen Reviews</a></li>
-                    </ul>
-                </div><!-- end footer-item -->
-            </div><!-- end col-lg-3 -->
-        </div><!-- end row -->
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <div class="term-box footer-item">
-                    <ul class="list-items list--items d-flex align-items-center">
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Help Center</a></li>
-                    </ul>
-                </div>
-            </div><!-- end col-lg-8 -->
-            <div class="col-lg-4">
-                <div class="footer-social-box text-right">
-                    <ul class="social-profile">
-                        <li><a href="#"><i class="lab la-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="lab la-twitter"></i></a></li>
-                        <li><a href="#"><i class="lab la-instagram"></i></a></li>
-                        <li><a href="#"><i class="lab la-linkedin-in"></i></a></li>
-                    </ul>
-                </div>
-            </div><!-- end col-lg-4 -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-    <div class="section-block mt-4"></div>
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <div class="copy-right padding-top-30px">
-                    <p class="copy__desc">
-                        &copy; Copyright  JPEB 2021. Made with
-                        <span class="la la-heart"></span> by <a href="https://jpeg.com">JPEB Developers</a>
-                    </p>
-                </div><!-- end copy-right -->
-            </div><!-- end col-lg-7 -->
-            <div class="col-lg-5">
-                <div class="copy-right-content d-flex align-items-center justify-content-end padding-top-30px">
-                    <h3 class="title font-size-15 pr-2">We Accept</h3>
-                    <img src="images/payment-img.png" alt="">
-                </div><!-- end copy-right-content -->
-            </div><!-- end col-lg-5 -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</section><!-- end footer-area -->
-<!-- ================================
-       START FOOTER AREA
-================================= -->
 
 <!-- start back-to-top -->
 <div id="back-to-top">
@@ -1465,18 +1337,5 @@
 </div><!-- end modal-popup -->
 
 <!-- Template JS Files -->
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-select.min.js"></script>
-<script src="js/moment.min.js"></script>
-<script src="js/daterangepicker.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.fancybox.min.js"></script>
-<script src="js/jquery.countTo.min.js"></script>
-<script src="js/animated-headline.js"></script>
-<script src="js/jquery.ripples-min.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
+
+{% endblock content %}

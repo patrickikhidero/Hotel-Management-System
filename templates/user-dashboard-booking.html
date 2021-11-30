@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="author" content="TechyDevs">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JPEB - Hotel</title>
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.png">
+ {% extends 'base.html' %}
+{% load static %}
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- Template CSS Files -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="css/line-awesome.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/daterangepicker.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/animated-headline.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/flag-icon.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+{% block content %}
 <body class="section-bg">
 <!-- start cssload-loader -->
 <div class="preloader" id="preloader">
@@ -127,35 +103,35 @@
             <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
                 <div class="user-action-wrap user-sidebar-panel">
                     <div class="notification-item">
-                        <a href="user-dashboard-profile.html" class="dropdown-item">
+                        <a href="{% static 'user-dashboard-profile.html' %}" class="dropdown-item">
                             <div class="d-flex align-items-center">
                                 <div class="avatar avatar-sm flex-shrink-0 mr-2"><img src="images/team8.jpg" alt="team-img"></div>
                                 <span class="font-size-14 font-weight-bold">Ali Tufan</span>
                             </div>
                         </a>
                         <div class="list-group drop-reveal-list user-drop-reveal-list">
-                            <a href="user-dashboard-profile.html" class="list-group-item list-group-item-action">
+                            <a href="{% static 'user-dashboard-profile.html' %}" class="list-group-item list-group-item-action">
                                 <div class="msg-body">
                                     <div class="msg-content">
                                         <h3 class="title"><i class="la la-user mr-2"></i>My Profile</h3>
                                     </div>
                                 </div><!-- end msg-body -->
                             </a>
-                            <a href="user-dashboard-booking.html" class="list-group-item list-group-item-action">
+                            <a href="{% static 'user-dashboard-booking.html' %}" class="list-group-item list-group-item-action">
                                 <div class="msg-body">
                                     <div class="msg-content">
                                         <h3 class="title"><i class="la la-shopping-cart mr-2"></i>My Booking</h3>
                                     </div>
                                 </div><!-- end msg-body -->
                             </a>
-                            <a href="user-dashboard-reviews.html" class="list-group-item list-group-item-action">
+                            <a href="{% static 'user-dashboard-reviews.html' %}" class="list-group-item list-group-item-action">
                                 <div class="msg-body">
                                     <div class="msg-content">
                                         <h3 class="title"><i class="la la-heart mr-2"></i>My Reviews</h3>
                                     </div>
                                 </div><!-- end msg-body -->
                             </a>
-                            <a href="user-dashboard-settings.html" class="list-group-item list-group-item-action">
+                            <a href="{% static 'user-dashboard-settings.html' %}" class="list-group-item list-group-item-action">
                                 <div class="msg-body">
                                     <div class="msg-content">
                                         <h3 class="title"><i class="la la-gear mr-2"></i>Settings</h3>
@@ -163,7 +139,7 @@
                                 </div><!-- end msg-body -->
                             </a>
                             <div class="section-block"></div>
-                            <a href="index.html" class="list-group-item list-group-item-action">
+                            <a href="{% static 'index.html' %}" class="list-group-item list-group-item-action">
                                 <div class="msg-body">
                                     <div class="msg-content">
                                         <h3 class="title"><i class="la la-power-off mr-2"></i>Logout</h3>
@@ -192,7 +168,7 @@
         <div class="author-content">
             <div class="d-flex align-items-center">
                 <div class="author-img avatar-sm">
-                    <img src="images/team8.jpg" alt="testimonial image">
+                    <img src="{% static 'images/team8.jpg' %}{% static '" alt="testimonial image">
                 </div>
                 <div class="author-bio">
                     <h4 class="author__title">Ali Tufan</h4>
@@ -202,13 +178,13 @@
         </div>
         <div class="sidebar-menu-wrap">
             <ul class="sidebar-menu list-items">
-                <li><a href="user-dashboard.html"><i class="la la-dashboard mr-2 text-color"></i>Dashboard</a></li>
-                <li class="page-active"><a href="user-dashboard-booking.html"><i class="la la-shopping-cart mr-2"></i>My Booking</a></li>
-                <li><a href="user-dashboard-profile.html"><i class="la la-user mr-2 text-color-2"></i>My Profile</a></li>
-                <li><a href="user-dashboard-reviews.html"><i class="la la-star mr-2 text-color-3"></i>My Reviews</a></li>
-                <li><a href="user-dashboard-wishlist.html"><i class="la la-heart mr-2 text-color-4"></i>Wishlist</a></li>
-                <li><a href="user-dashboard-settings.html"><i class="la la-cog mr-2 text-color-5"></i>Settings</a></li>
-                <li><a href="index.html"><i class="la la-power-off mr-2 text-color-6"></i>Logout</a></li>
+                <li><a href="{% static 'user-dashboard.html' %}"><i class="la la-dashboard mr-2 text-color"></i>Dashboard</a></li>
+                <li class="page-active"><a href="{% static 'user-dashboard-booking.html' %}"><i class="la la-shopping-cart mr-2"></i>My Booking</a></li>
+                <li><a href="{% static 'user-dashboard-profile.html' %}"><i class="la la-user mr-2 text-color-2"></i>My Profile</a></li>
+                <li><a href="{% static 'user-dashboard-reviews.html' %}"><i class="la la-star mr-2 text-color-3"></i>My Reviews</a></li>
+                <li><a href="{% static 'user-dashboard-wishlist.html' %}"><i class="la la-heart mr-2 text-color-4"></i>Wishlist</a></li>
+                <li><a href="{% static 'user-dashboard-settings.html' %}"><i class="la la-cog mr-2 text-color-5"></i>Settings</a></li>
+                <li><a href="{% static 'index.html' %}"><i class="la la-power-off mr-2 text-color-6"></i>Logout</a></li>
             </ul>
         </div><!-- end sidebar-menu-wrap -->
     </div>
@@ -227,7 +203,7 @@
                 <div class="col-lg-12">
                     <div class="menu-wrapper">
                         <div class="logo mr-5">
-                            <a href="index.html"><img src="images/logo2.png" alt="logo"></a>
+                            <a href="{% static 'index.html' %}"><img src="{% static 'images/logo2.png' %}" alt="logo"></a>
                             <div class="menu-toggler">
                                 <i class="la la-bars"></i>
                                 <i class="la la-times"></i>
@@ -313,28 +289,28 @@
                                                 <h6 class="title text-uppercase">Welcome!</h6>
                                             </div>
                                             <div class="list-group drop-reveal-list user-drop-reveal-list">
-                                                <a href="user-dashboard-profile.html" class="list-group-item list-group-item-action">
+                                                <a href="{% static 'user-dashboard-profile.html' %}" class="list-group-item list-group-item-action">
                                                     <div class="msg-body">
                                                         <div class="msg-content">
                                                             <h3 class="title"><i class="la la-user mr-2"></i>My Profile</h3>
                                                         </div>
                                                     </div><!-- end msg-body -->
                                                 </a>
-                                                <a href="user-dashboard-booking.html" class="list-group-item list-group-item-action">
+                                                <a href="{% static 'user-dashboard-booking.html' %}" class="list-group-item list-group-item-action">
                                                     <div class="msg-body">
                                                         <div class="msg-content">
                                                             <h3 class="title"><i class="la la-shopping-cart mr-2"></i>My Booking</h3>
                                                         </div>
                                                     </div><!-- end msg-body -->
                                                 </a>
-                                                <a href="user-dashboard-reviews.html" class="list-group-item list-group-item-action">
+                                                <a href="{% static 'user-dashboard-reviews.html' %}" class="list-group-item list-group-item-action">
                                                     <div class="msg-body">
                                                         <div class="msg-content">
                                                             <h3 class="title"><i class="la la-heart mr-2"></i>My Reviews</h3>
                                                         </div>
                                                     </div><!-- end msg-body -->
                                                 </a>
-                                                <a href="user-dashboard-reviews.html" class="list-group-item list-group-item-action">
+                                                <a href="{% static 'user-dashboard-reviews.html' %}" class="list-group-item list-group-item-action">
                                                     <div class="msg-body">
                                                         <div class="msg-content">
                                                             <h3 class="title"><i class="la la-gear mr-2"></i>Settings</h3>
@@ -342,7 +318,7 @@
                                                     </div><!-- end msg-body -->
                                                 </a>
                                                 <div class="section-block"></div>
-                                                <a href="index.html" class="list-group-item list-group-item-action">
+                                                <a href="{% static 'index.html' %}" class="list-group-item list-group-item-action">
                                                     <div class="msg-body">
                                                         <div class="msg-content">
                                                             <h3 class="title"><i class="la la-power-off mr-2"></i>Logout</h3>
@@ -374,7 +350,7 @@
                     <div class="col-lg-6">
                         <div class="breadcrumb-list text-right">
                             <ul class="list-items">
-                                <li><a href="index.html" class="text-white">Home</a></li>
+                                <li><a href="{% static 'index.html' %}" class="text-white">Home</a></li>
                                 <li>Dashboard</li>
                                 <li>My Booking</li>
                             </ul>
@@ -607,18 +583,5 @@
 <!-- end scroll top -->
 
 <!-- Template JS Files -->
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-select.min.js"></script>
-<script src="js/moment.min.js"></script>
-<script src="js/daterangepicker.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.fancybox.min.js"></script>
-<script src="js/jquery.countTo.min.js"></script>
-<script src="js/animated-headline.js"></script>
-<script src="js/jquery.ripples-min.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
+
+{% endblock content %}

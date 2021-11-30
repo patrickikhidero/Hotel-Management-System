@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-{}
-<html lang="en">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="author" content="TechyDevs">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JPEB - Hotel</title>
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.png">
+{% extends 'base.html' %}
+{% load static %}
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- Template CSS Files -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="css/line-awesome.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/daterangepicker.css">
-    <link rel="stylesheet" href="css/animated-headline.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/flag-icon.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+{% block content %}
 <body>
 <!-- start cssload-loader -->
 <div class="preloader" id="preloader">
@@ -38,72 +14,7 @@
 <!-- end cssload-loader -->
 
 
-<!-- ================================
-            START HEADER AREA
-================================= -->
-<header class="header-area">
-    <div class="header-top-bar padding-right-100px padding-left-100px">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="header-top-content">
-                        <div class="header-left">
-                            <ul class="list-items">
-                                <li><a href="#"><i class="la la-phone mr-1"></i>(123) 123-456</a></li>
-                                <li><a href="#"><i class="la la-envelope mr-1"></i>contact@jpeb.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="header-top-content">
-                        <div class="header-right d-flex align-items-center justify-content-end">
-                            <div class="header-right-action">
-                                <a href="#" class="theme-btn theme-btn-small theme-btn-transparent mr-1" data-toggle="modal" data-target="#signupPopupForm">Sign Up</a>
-                                 <a href="#" class="theme-btn theme-btn-small" data-toggle="modal" data-target="#loginPopupForm">Login</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="header-menu-wrapper padding-right-100px padding-left-100px">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="menu-wrapper justify-content-between">
-                        <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
-                        <div class="logo">
-                            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
-                            <div class="menu-toggler">
-                                <i class="la la-bars"></i>
-                                <i class="la la-times"></i>
-                            </div><!-- end menu-toggler -->
-                        </div><!-- end logo -->
-                        <div class="main-menu-content pr-0 ml-0">
-                            <nav>
-                                <ul>
-                                    <li>
-                                        <a href="#">Home <i class=""></i></a>
-                                        
-                                    </li>
-                                    <li>
-                                        <a href="room-grid.html">Rooms <i class=""></i></a>
-                                        
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div><!-- end main-menu-content -->
-                    </div><!-- end menu-wrapper -->
-                </div><!-- end col-lg-12 -->
-            </div><!-- end row -->
-        </div><!-- end container-fluid -->
-    </div><!-- end header-menu-wrapper -->
-</header>
-<!-- ================================
-         END HEADER AREA
-================================= -->
+
 
 <!-- ================================
     START HERO-WRAPPER AREA
@@ -112,9 +23,9 @@
     <div class="hero-box pb-0">
         <div id="fullscreen-slide-contain">
             <ul class="slides-container">
-                <li><img src="images/hero-bg2.jpg" alt=""></li>
-                <li><img src="images/hero--bg2.jpg" alt=""></li>
-                <li><img src="images/hero--bg3.jpg" alt=""></li>
+                <li><img src="{% static 'images/hero-bg2.jpg' %}" alt=""></li>
+                <li><img src="{% static 'images/hero--bg2.jpg' %}" alt=""></li>
+                <li><img src="{% static 'images/hero--bg3.jpg' %}" alt=""></li>
             </ul>
         </div><!-- End background slider -->
         <div class="container">
@@ -231,7 +142,7 @@
                                 </div><!-- end col-lg-3 -->
                             </form>
                             <div class="btn-box pt-2">
-                                <a href="room-search-result.html" class="theme-btn">Search Now</a>
+                                <a href="#" class="theme-btn">Search Now</a>
                             </div>
                         </div>
                     </div>
@@ -324,14 +235,14 @@
                         <p class="sec__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus amet consectetur ipsa officia. Doloremque error porro sit soluta totam! A iste nobis vel voluptatem!</p>
                     </div><!-- end section-heading -->
                     <div class="btn-box pt-4">
-                        <a href="about.html" class="theme-btn">Read More <i class="la la-arrow-right ml-1"></i></a>
+                        <a href="{% url 'about' %}" class="theme-btn">Read More <i class="la la-arrow-right ml-1"></i></a>
                     </div>
                 </div>
             </div><!-- end col-lg-6 -->
             <div class="col-lg-6">
-                <div class="image-box about-img-box">
-                    <img src="images/img5.jpg" alt="about-img" class="img__item img__item-1">
-                    <img src="images/tripadvisor.png" alt="about-img" class="img__item img__item-2">
+                <div class="{% static 'image-box about-img-box' %}">
+                    <img src="{% static 'images/img5.jpg' %}" alt="about-img" class="img__item img__item-1">
+                    <img src="{% static 'images/tripadvisor.png' %}" alt="about-img" class="img__item img__item-2">
                 </div>
             </div><!-- end col-lg-6 -->
         </div><!-- end row -->
@@ -359,8 +270,8 @@
             <div class="col-lg-6">
                 <div class="room-type-content">
                     <div class="image-box">
-                        <a href="room-list.html" class="d-block">
-                            <img src="images/img27.jpg" alt="room type img" class="img__item">
+                        <a href="{% url 'room_grid' %}" class="d-block">
+                            <img src="{% static 'images/img27.jpg' %}" alt="room type img" class="img__item">
                             <div class="room-type-link">
                                 Dorm Beds <i class="la la-arrow-right ml-2"></i>
                             </div>
@@ -371,8 +282,8 @@
             <div class="col-lg-6">
                 <div class="room-type-content">
                     <div class="image-box">
-                        <a href="room-list.html" class="d-block">
-                            <img src="images/img28.jpg" alt="room type img" class="img__item">
+                        <a href="#" class="d-block">
+                            <img src="{% static 'images/img28.jpg' %}" alt="room type img" class="img__item">
                             <div class="room-type-link">
                                 Private Room <i class="la la-arrow-right ml-2"></i>
                             </div>
@@ -405,14 +316,14 @@
                     <div class="hotel-card-carousel-2 carousel-action">
                         <div class="card-item">
                             <div class="card-img">
-                                <a href="hotel-single.html" class="d-block">
-                                    <img src="images/img1.jpg" alt="hotel-img">
+                                <a href="#" class="d-block">
+                                    <img src="{% static 'images/img1.jpg' %}" alt="hotel-img">
                                 </a>
                                 <span class="badge">Bestseller</span>
                                 <span class="badge badge-ribbon">30% off</span>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="hotel-single.html">The Millennium Hilton New York</a></h3>
+                                <h3 class="card-title"><a href="#">The Millennium Hilton New York</a></h3>
                                 <p class="card-meta">124 E Huron St, New york</p>
                                 <div class="card-rating">
                                     <span class="badge text-white">4.4/5</span>
@@ -425,18 +336,18 @@
                                         <span class="price__num before-price color-text-3">$120.00</span>
                                         <span class="price__text">Per night</span>
                                     </p>
-                                    <a href="hotel-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                    <a href="#" class="btn-text">See details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card-item -->
                         <div class="card-item">
                             <div class="card-img">
-                                <a href="hotel-single.html" class="d-block">
-                                    <img src="images/img2.jpg" alt="hotel-img">
+                                <a href="#" class="d-block">
+                                    <img src="{% static 'images/img2.jpg' %}" alt="hotel-img">
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="hotel-single.html">Best Western Grant Park Hotel</a></h3>
+                                <h3 class="card-title"><a href="#">Best Western Grant Park Hotel</a></h3>
                                 <p class="card-meta">124 E Huron St, Chicago</p>
                                 <div class="card-rating">
                                     <span class="badge text-white">4.4/5</span>
@@ -449,20 +360,20 @@
                                         <span class="price__num">$58.00</span>
                                         <span class="price__text">Per night</span>
                                     </p>
-                                    <a href="hotel-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                    <a href="#" class="btn-text">See details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card-item -->
                         <div class="card-item">
                             <div class="card-img">
-                                <a href="hotel-single.html" class="d-block">
-                                    <img src="images/img3.jpg" alt="hotel-img">
+                                <a href="#" class="d-block">
+                                    <img src="{% static 'images/img3.jpg' %}" alt="hotel-img">
                                 </a>
                                 <span class="badge">Featured</span>
                                 <span class="badge badge-ribbon">20% off</span>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="hotel-single.html">Hyatt Regency Maui Resort & Spa</a></h3>
+                                <h3 class="card-title"><a href="#">Hyatt Regency Maui Resort & Spa</a></h3>
                                 <p class="card-meta">200 Nohea Kai Dr, Lahaina, HI</p>
                                 <div class="card-rating">
                                     <span class="badge text-white">4.4/5</span>
@@ -475,19 +386,19 @@
                                         <span class="price__num before-price color-text-3">$100.00</span>
                                         <span class="price__text">Per night</span>
                                     </p>
-                                    <a href="hotel-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                    <a href="#" class="btn-text">See details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card-item -->
                         <div class="card-item">
                             <div class="card-img">
-                                <a href="hotel-single.html" class="d-block">
-                                    <img src="images/img4.jpg" alt="hotel-img">
+                                <a href="#" class="d-block">
+                                    <img src="{% static 'images/img4.jpg' %}" alt="hotel-img">
                                 </a>
                                 <span class="badge">Popular</span>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="hotel-single.html">Four Seasons Resort Maui at Wailea</a></h3>
+                                <h3 class="card-title"><a href="#">Four Seasons Resort Maui at Wailea</a></h3>
                                 <p class="card-meta">3900 Wailea Alanui Drive, Kihei, HI</p>
                                 <div class="card-rating">
                                     <span class="badge text-white">4.4/5</span>
@@ -500,18 +411,18 @@
                                         <span class="price__num">$88.00</span>
                                         <span class="price__text">Per night</span>
                                     </p>
-                                    <a href="hotel-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                    <a href="#" class="btn-text">See details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card-item -->
                         <div class="card-item">
                             <div class="card-img">
-                                <a href="hotel-single.html" class="d-block">
-                                    <img src="images/img5.jpg" alt="hotel-img">
+                                <a href="#" class="d-block">
+                                    <img src="{% static 'images/img5.jpg' %}" alt="hotel-img">
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="hotel-single.html">Ibis Styles London Heathrow</a></h3>
+                                <h3 class="card-title"><a href="#">Ibis Styles London Heathrow</a></h3>
                                 <p class="card-meta"> 272 Bath Road, Harlington, England</p>
                                 <div class="card-rating">
                                     <span class="badge text-white">4.4/5</span>
@@ -524,19 +435,19 @@
                                         <span class="price__num">$88.00</span>
                                         <span class="price__text">Per night</span>
                                     </p>
-                                    <a href="hotel-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                    <a href="#" class="btn-text">See details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card-item -->
                         <div class="card-item">
                             <div class="card-img">
-                                <a href="hotel-single.html" class="d-block">
-                                    <img src="images/img6.jpg" alt="hotel-img">
+                                <a href="#" class="d-block">
+                                    <img src="{% static 'images/img6.jpg' %}" alt="hotel-img">
                                 </a>
                                 <span class="badge badge-ribbon">10% off</span>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title"><a href="hotel-single.html">Hotel Europe Saint Severin Paris</a></h3>
+                                <h3 class="card-title"><a href="#">Hotel Europe Saint Severin Paris</a></h3>
                                 <p class="card-meta">38-40 Rue Saint Séverin, Paris, Paris</p>
                                 <div class="card-rating">
                                     <span class="badge text-white">4.4/5</span>
@@ -549,7 +460,7 @@
                                         <span class="price__num before-price color-text-3">$80.00</span>
                                         <span class="price__text">Per night</span>
                                     </p>
-                                    <a href="hotel-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                                    <a href="#" class="btn-text">See details<i class="la la-angle-right"></i></a>
                                 </div>
                             </div>
                         </div><!-- end card-item -->
@@ -572,7 +483,7 @@
             <div class="col-lg-12">
                 <div class="discount-box">
                     <div class="discount-img">
-                        <img src="images/discount-hotel-img.jpg" alt="discount img">
+                        <img src="{% static 'images/discount-hotel-img.jpg' %}" alt="discount img">
                     </div><!-- end discount-img -->
                     <div class="discount-content">
                         <div class="section-heading">
@@ -584,7 +495,7 @@
                         </div>
                     </div><!-- end discount-content -->
                     <div class="company-logo">
-                        <img src="images/logo2.png" alt="">
+                        <img src="{% static 'images/logo2.png' %}" alt="">
                         <p class="text-white font-size-14 text-right">*Terms applied</p>
                     </div><!-- end company-logo -->
                 </div>
@@ -617,7 +528,7 @@
                         </div>
                         <div class="author-content d-flex align-items-center">
                             <div class="author-img">
-                                <img src="images/team8.jpg" alt="testimonial image">
+                                <img src="{% static 'images/team8.jpg' %}" alt="testimonial image">
                             </div>
                             <div class="author-bio">
                                 <h4 class="author__title">Leroy Bell</h4>
@@ -638,10 +549,10 @@
                         </div>
                         <div class="author-content d-flex align-items-center">
                             <div class="author-img">
-                                <img src="images/team9.jpg" alt="testimonial image">
+                                <img src="{% static 'images/team9.jpg' %}" alt="testimonial image">
                             </div>
                             <div class="author-bio">
-                                <h4 class="author__title">Richard Pam</h4>
+                                <h4 class="author__title">Richard Patoricoh</h4>
                                 <span class="author__meta">Canada</span>
                                 <span class="ratings d-flex align-items-center">
                                     <i class="la la-star"></i>
@@ -659,10 +570,10 @@
                         </div>
                         <div class="author-content d-flex align-items-center">
                             <div class="author-img">
-                                <img src="images/team10.jpg" alt="testimonial image">
+                                <img src="{% static 'images/team10.jpg' %}" alt="testimonial image">
                             </div>
                             <div class="author-bio">
-                                <h4 class="author__title">Luke Jacobs</h4>
+                                <h4 class="author__title">Osas Jacobs</h4>
                                 <span class="author__meta">Australia</span>
                                 <span class="ratings d-flex align-items-center">
                                     <i class="la la-star"></i>
@@ -680,7 +591,7 @@
                         </div>
                         <div class="author-content d-flex align-items-center">
                             <div class="author-img">
-                                <img src="images/team8.jpg" alt="testimonial image">
+                                <img src="{% static 'images/team8.jpg' %}" alt="testimonial image">
                             </div>
                             <div class="author-bio">
                                 <h4 class="author__title">Chulbul Panday</h4>
@@ -722,7 +633,7 @@
             <div class="col-lg-4 responsive-column">
                 <div class="card-item blog-card">
                     <div class="card-img">
-                        <img src="images/img5.jpg" alt="blog-img">
+                        <img src="{% static 'images/img5.jpg' %}" alt="blog-img">
                         <div class="post-format icon-element">
                             <i class="la la-photo"></i>
                         </div>
@@ -731,7 +642,7 @@
                                 <a href="#" class="badge">Travel</a>
                                 <a href="#" class="badge">lifestyle</a>
                             </div>
-                            <h3 class="card-title line-height-26"><a href="blog-single.html">Best Scandinavian Accommodation – Treat Yourself</a></h3>
+                            <h3 class="card-title line-height-26"><a href="">Best Scandinavian Accommodation – Treat Yourself</a></h3>
                             <p class="card-meta">
                                 <span class="post__date"> 1 January, 2020</span>
                                 <span class="post-dot"></span>
@@ -742,7 +653,7 @@
                     <div class="card-footer d-flex align-items-center justify-content-between">
                         <div class="author-content d-flex align-items-center">
                             <div class="author-img">
-                                <img src="images/small-team1.jpg" alt="testimonial image">
+                                <img src="{% static 'images/small-team1.jpg' %}" alt="testimonial image">
                             </div>
                             <div class="author-bio">
                                 <a href="#" class="author__title">Leroy Bell</a>
@@ -766,7 +677,7 @@
             <div class="col-lg-4 responsive-column">
                 <div class="card-item blog-card">
                     <div class="card-img">
-                        <img src="images/img6.jpg" alt="blog-img">
+                        <img src="{% static 'images/img6.jpg' %}" alt="blog-img">
                         <div class="post-format icon-element">
                             <i class="la la-play"></i>
                         </div>
@@ -774,7 +685,7 @@
                             <div class="post-categories">
                                 <a href="#" class="badge">Video</a>
                             </div>
-                            <h3 class="card-title line-height-26"><a href="blog-single.html">Amazing Places to Stay in Norway</a></h3>
+                            <h3 class="card-title line-height-26"><a href="">Amazing Places to Stay in Norway</a></h3>
                             <p class="card-meta">
                                 <span class="post__date"> 1 February, 2020</span>
                                 <span class="post-dot"></span>
@@ -785,7 +696,7 @@
                     <div class="card-footer d-flex align-items-center justify-content-between">
                         <div class="author-content d-flex align-items-center">
                             <div class="author-img">
-                                <img src="images/small-team2.jpg" alt="testimonial image">
+                                <img src="{% static 'images/small-team2.jpg' %}" alt="testimonial image">
                             </div>
                             <div class="author-bio">
                                 <a href="#" class="author__title">Phillip Hunt</a>
@@ -809,7 +720,7 @@
             <div class="col-lg-4 responsive-column">
                 <div class="card-item blog-card">
                     <div class="card-img">
-                        <img src="images/img7.jpg" alt="blog-img">
+                        <img src="{% static 'images/img7.jpg' %}" alt="blog-img">
                         <div class="post-format icon-element">
                             <i class="la la-music"></i>
                         </div>
@@ -817,7 +728,7 @@
                             <div class="post-categories">
                                 <a href="#" class="badge">audio</a>
                             </div>
-                            <h3 class="card-title line-height-26"><a href="blog-single.html">Feel Like Home on Your Business Trip</a></h3>
+                            <h3 class="card-title line-height-26"><a href="">Feel Like Home on Your Business Trip</a></h3>
                             <p class="card-meta">
                                 <span class="post__date"> 1 March, 2020</span>
                                 <span class="post-dot"></span>
@@ -828,7 +739,7 @@
                     <div class="card-footer d-flex align-items-center justify-content-between">
                         <div class="author-content d-flex align-items-center">
                             <div class="author-img">
-                                <img src="images/small-team3.jpg" alt="testimonial image">
+                                <img src="{% static 'images/small-team3.jpg' %}" alt="testimonial image">
                             </div>
                             <div class="author-bio">
                                 <a href="#" class="author__title">Luke Jacobs</a>
@@ -892,80 +803,6 @@
     END CTA AREA
 ================================= -->
 
-<!-- ================================
-       START FOOTER AREA
-================================= -->
-<section class="footer-area section-bg padding-top-100px padding-bottom-30px">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 responsive-column">
-                <div class="footer-item">
-                    <div class="footer-logo padding-bottom-30px">
-                        <a href="index.html" class="foot__logo"><img src="images/logo.png" alt="logo"></a>
-                    </div><!-- end logo -->
-                    <p class="footer__desc">Reach out to us onsite</p>
-                    <ul class="list-items pt-3">
-                        <li>7 asajon way Sangotedo Ajah, Lagos,<br> Nigeria</li>
-                        <li>+234-836-392-833</li>
-                        <li><a href="#">info@jpeb.com</a></li>
-                    </ul>
-                </div><!-- end footer-item -->
-            </div><!-- end col-lg-3 -->
-            <div class="col-lg-3 responsive-column">
-                <div class="footer-item">
-                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Company</h4>
-                    <ul class="list-items list--items">
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Support</a></li>
-                    </ul>
-                </div><!-- end footer-item -->
-             
-        </div><!-- end row -->
-            <div class="col-lg-3">
-                <div class="term-box footer-item">
-                    <ul class="list-items list--items d-flex align-items-center">
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Help Center</a></li>
-                    </ul>
-                </div>
-            </div><!-- end col-lg-8 -->
-            <div class="col-lg-3">
-                <div class="footer-social-box text-right">
-                    <ul class="social-profile">
-                        <li><a href="#"><i class="lab la-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="lab la-twitter"></i></a></li>
-                        <li><a href="#"><i class="lab la-instagram"></i></a></li>
-                        <li><a href="#"><i class="lab la-linkedin-in"></i></a></li>
-                    </ul>
-                </div>
-            </div><!-- end col-lg-4 -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-    <div class="section-block mt-4"></div>
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <div class="copy-right padding-top-30px">
-                    <p class="copy__desc">
-                        &copy; Copyright  JPEB 2021. Made with
-                        <span class="la la-heart"></span> by <a href="https://jpeg.com">JPEB Developers</a>
-                    </p>
-                </div><!-- end copy-right -->
-            </div><!-- end col-lg-7 -->
-            <div class="col-lg-5">
-                <div class="copy-right-content d-flex align-items-center justify-content-end padding-top-30px">
-                    <h3 class="title font-size-15 pr-2">We Accept</h3>
-                    <img src="images/payment-img.png" alt="">
-                </div><!-- end copy-right-content -->
-            </div><!-- end col-lg-5 -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</section><!-- end footer-area -->
-<!-- ================================
-       START FOOTER AREA
-================================= -->
 
 <!-- start back-to-top -->
 <div id="back-to-top">
@@ -1074,7 +911,7 @@
                                         <label for="rememberchb">Remember me</label>
                                     </div>
                                     <p class="forgot-password">
-                                        <a href="recover.html">Forgot Password?</a>
+                                        <a href="">Forgot Password?</a>
                                     </p>
                                 </div>
                             </div><!-- end input-box -->
@@ -1098,23 +935,4 @@
     </div>
 </div><!-- end modal-popup -->
 
-
-<!-- Template JS Files -->
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-select.min.js"></script>
-<script src="js/moment.min.js"></script>
-<script src="js/daterangepicker.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.fancybox.min.js"></script>
-<script src="js/jquery.countTo.min.js"></script>
-<script src="js/animated-headline.js"></script>
-<script src="js/jquery.ripples-min.js"></script>
-<script src="js/quantity-input.js"></script>
-<script src="js/jquery.superslides.min.js"></script>
-<script src="js/superslider-script.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>
+{% endblock content %}
