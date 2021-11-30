@@ -1,7 +1,7 @@
 from django.db import models 
 import uuid 
-# import os 
-# import psycopg2 
+import os 
+import psycopg2 
 # from django.contrib.auth.models import AbstractUser 
 
 
