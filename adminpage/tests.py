@@ -1,3 +1,5 @@
 from django.test import TestCase
 
-# Create your tests here.
+class TestFiles(TestCase):
+    def test_model(self):
+        pass
