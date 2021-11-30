@@ -36,7 +36,7 @@
                     <div class="menu-wrapper justify-content-between">
                         <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
                         <div class="logo">
-                            <a href="index.html"><img src="{% static 'images/logo2.png' %}" alt="logo"></a>
+                            <a href="{% url 'homepage' %}"><img src="{% static 'images/logo2.png' %}" alt="logo"></a>
                             <div class="menu-toggler">
                                 <i class="la la-bars"></i>
                                 <i class="la la-times"></i>
@@ -46,7 +46,7 @@
                             <nav>
                                 <ul>
                                     <li>
-                                        <a href="#">Home <i class=""></i></a>
+                                        <a href="{% url 'homepage' %}">Home <i class=""></i></a>
                                         
                                     </li>
                                     <li>

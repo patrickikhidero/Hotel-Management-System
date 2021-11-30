@@ -767,7 +767,7 @@
                                 </div>
                             </div><!-- end sidebar-widget-item -->
                             <div class="btn-box">
-                                <a href="{% url 'cart.html' %}" class="theme-btn text-center w-100 mb-2">Book Now</a>
+                                <a href="{% url 'cart' %}" class="theme-btn text-center w-100 mb-2">Book Now</a>
                             </div>
                         </div><!-- end sidebar-widget -->
                         <div class="sidebar-widget single-content-widget">
@@ -787,7 +787,7 @@
                             <div class="sidebar-list pt-3">
                                 <ul class="list-items">
                                     <li><i class="la la-phone icon-element mr-2"></i><a href="#">+ 61 23 8093 3400</a></li>
-                                    <li><i class="la la-envelope icon-element mr-2"></i><a href="{% url 'mailto:info@jpeb.com' %}">info@jpeb.com</a></li>
+                                    <li><i class="la la-envelope icon-element mr-2"></i><a href="">info@jpeb.com</a></li>
                                 </ul>
                             </div><!-- end sidebar-list -->
                         </div><!-- end sidebar-widget -->
@@ -826,7 +826,7 @@
                             </a>
                         </div>
                         <div class="card-img">
-                            <a href="r{% url 'room_details' %}" class="d-block">
+                            <a href="{% url 'room_details' %}" class="d-block">
                                 <img src="{% static 'images/img29.jpg' %}" alt="hotel-img">
                             </a>
                         </div>
@@ -864,7 +864,7 @@
                 <div class="card-item room-card">
                     <div class="card-img-carousel carousel-action carousel--action">
                         <div class="card-img">
-                            <a href="{% url 'room_details.' %}" class="d-block">
+                            <a href="{% url 'room_details' %}" class="d-block">
                                 <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
                             </a>
                         </div>
