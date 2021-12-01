@@ -1,8 +1,8 @@
 from django.db import models 
 import uuid 
-import os 
-import psycopg2 
-# from django.contrib.auth.models import AbstractUser 
+# import os 
+# import psycopg2 
+from django.contrib.auth.models import AbstractUser 
 
 
 # class UserProfile(AbstractUser): 
@@ -23,7 +23,7 @@ class Receptionist(models.Model):
     first_name = models.CharField(max_length=30) 
     last_name = models.CharField(max_length=30) 
     gender = models.CharField(max_length=7) 
-    avartar_url = models.CharField(max_length=200, null=True) 
+    avartar_url = models.CharField(default=None, max_length=200, null=True) 
     created_at = models.DateTimeField(auto_now_add=True, null=True) 
     updated_at = models.DateTimeField(auto_now=True) 
     
@@ -80,7 +80,7 @@ class Room(models.Model) :
         return f'{self.room_type_id}' 
         
         
-class User(models.Model) : 
+class Customer(models.Model) : 
     id = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4, editable=False) 
     first_name = models.CharField(max_length=200) 
     last_name = models.CharField(max_length=200) 
@@ -108,7 +108,7 @@ class PaymentType(models.Model) :
 class Booking(models.Model) : 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
     room_id = models.ForeignKey(Room, on_delete=models.CASCADE, null=True) 
-    customer_id = models.ForeignKey(User, on_delete=models.CASCADE) 
+    customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE) 
     staff_id = models.ForeignKey(Receptionist, on_delete=models.CASCADE, null=True) 
     payment_id = models.ForeignKey(PaymentType, on_delete=models.CASCADE, null=True) 
     start_time = models.DateField(blank=True, null=True) 
@@ -119,7 +119,7 @@ class Booking(models.Model) :
 
 class Payment(models.Model) : 
     room_id = models.ForeignKey(Room, on_delete=models.CASCADE) 
-    customer_id = models.ForeignKey(User, on_delete=models.CASCADE) 
+    customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE) 
     payment_id = models.ForeignKey(PaymentType, on_delete=models.CASCADE) 
     created_at = models.DateTimeField(auto_now_add=True, null=True) 
     updated_at = models.DateTimeField(auto_now=True) 
@@ -129,7 +129,7 @@ class Reservation(models.Model) :
     id = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4, editable=False) 
     room_id = models.ForeignKey(Room, on_delete=models.CASCADE) 
     payment_id = models.ForeignKey(PaymentType, on_delete=models.CASCADE) 
-    customer_id = models.ForeignKey(User, on_delete=models.CASCADE) 
+    customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE) 
     staff_id = models.ForeignKey(Receptionist, on_delete=models.CASCADE) 
     start_time = models.DateTimeField() 
     end_time = models.DateTimeField() 
