@@ -8,11 +8,13 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import logout
 from django.contrib.auth.models import  User
 from django.contrib.auth.decorators import  login_required
+from .models import Room, Booking, PaymentType, Customer #,UserProfile
 
 
 
 
 def homepage(request):
+    # def get(self, request, *args, **kwargs):
     return render(request, 'index.html')
 
 def about(request):

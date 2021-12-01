@@ -28,7 +28,7 @@ from django.urls import path
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^HMS/', include('HMS.urls')),
+    url(r'^', include('HMS.urls')),
     url(r'^adminpage/', include('adminpage.urls')),
 ]
 
