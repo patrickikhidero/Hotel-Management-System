@@ -19,9 +19,13 @@ urlpatterns = [
     url(r'^user_dashboard_profile/$', views.user_dashboard_profile, name="user_dashboard_profile"),
     url(r'^user_dashboard_reviews/$', views.user_dashboard_reviews, name="user_dashboard_reviews"),
     url(r'^user_dashboard_wishlist/$', views.user_dashboard_wishlist, name="user_dashboard_wishlist"),
+    url(r'^user_dashboard_settings/$', views.user_dashboard_settings, name="user_dashboard_settings"),
     url(r'^user_dashboard/$', views.user_dashboard, name="user_dashboard"),
     url(r'^user_profile/$', views.user_profile, name="user_profile"),
-    url(r'^login/$', views.signin, name = "signin"),
+    url(r'^signin/$', views.signin, name = "signin"),
     url(r'^signup/$', views.signup, name = "signup"),
+    url(r'^login/$', views.loginPage, name = "login"),
+    url(r'^register/$', views.registerPage, name = "register"),
+    url(r'^logout/$', views.logoutUser, name = "logout"),
 ]
 

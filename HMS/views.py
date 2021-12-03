@@ -2,15 +2,13 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.contrib import messages, auth
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import logout
 from django.contrib.auth.models import  User
 from django.contrib.auth.decorators import  login_required
-from .models import Room, Booking, PaymentType, Customer #,UserProfile
-
-
+from .models import * 
+from .forms import CreateUserForm
 
 
 def homepage(request):
@@ -56,11 +54,48 @@ def user_dashboard_reviews(request):
 def user_dashboard_wishlist(request):
     return render(request, 'user-dashboard-wishlist.html')
 
+def user_dashboard_settings(request):
+    return render(request, 'user-dashboard-settings.html')
+
 def user_dashboard(request):
     return render(request, 'user-dashboard.html')
 
 def user_profile(request):
     return render(request, 'user-profile.html')
+
+def loginPage(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('user_dashboard')
+        else:
+            messages.info(request, 'Username and/or Password is incorrect')
+
+    context = {}
+    return render(request, 'login.html', context)
+
+def registerPage(request):
+    form = CreateUserForm()
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Registrations Successful for ' + user)
+
+            return redirect('login')
+
+    context = {'form': form}
+    return render(request, 'register.html', context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
        
 def signup(request):
     if request.user.is_authenticated:
