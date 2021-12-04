@@ -2,7 +2,7 @@ from django.db import models
 import uuid 
 # import os 
 # import psycopg2 
-from django.contrib.auth.models import AbstractUser 
+from django.contrib.auth.models import AbstractUser, User
 
 
 # class UserProfile(AbstractUser): 
@@ -82,9 +82,11 @@ class Room(models.Model) :
         
 class Customer(models.Model) : 
     id = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4, editable=False) 
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=200) 
     last_name = models.CharField(max_length=200) 
     email = models.EmailField(unique=True) 
+    username = models.CharField(null=True, max_length=100) 
     email_verified = models.BooleanField(unique=True) 
     phone_number = models.CharField(max_length=100, unique=True) 
     next_of_kin_fullname = models.CharField(max_length=100) 

@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^login/$', views.loginPage, name = "login"),
     url(r'^register/$', views.registerPage, name = "register"),
     url(r'^logout/$', views.logoutUser, name = "logout"),
+    url(r'^receptionist/$', views.receptionist, name = "receptionist"),
 ]
 
