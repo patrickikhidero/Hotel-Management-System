@@ -9,7 +9,15 @@ from django.contrib.auth.models import  User
 from django.contrib.auth.decorators import  login_required
 from .models import * 
 from .forms import CreateUserForm
+from django.contrib.auth.models import Group
+from django.contrib.auth.decorators import login_required
+from .decorators import unauthenticated_user, allowed_users, admin_only
 
+@login_required(login_url='login')
+@admin_only
+def receptionist(request):
+    # def get(self, request, *args, **kwargs):
+    return render(request, 'receptionist/index.html')
 
 def homepage(request):
     # def get(self, request, *args, **kwargs):
@@ -42,29 +50,45 @@ def room_details(request):
 def room_grid(request):
     return render(request, 'room-grid.html')
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
 def user_dashboard_booking(request):
     return render(request, 'user-dashboard-booking.html')
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
 def user_dashboard_profile(request):
     return render(request, 'user-dashboard-profile.html')
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
 def user_dashboard_reviews(request):
     return render(request, 'user-dashboard-reviews.html')
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
 def user_dashboard_wishlist(request):
     return render(request, 'user-dashboard-wishlist.html')
 
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
 def user_dashboard_settings(request):
     return render(request, 'user-dashboard-settings.html')
 
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
 def user_dashboard(request):
     return render(request, 'user-dashboard.html')
 
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
 def user_profile(request):
     return render(request, 'user-profile.html')
 
+@unauthenticated_user
 def loginPage(request):
-
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -79,14 +103,20 @@ def loginPage(request):
     context = {}
     return render(request, 'login.html', context)
 
+@unauthenticated_user
 def registerPage(request):
+   
     form = CreateUserForm()
     if request.method == "POST":
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Registrations Successful for ' + user)
+            user = form.save()
+            username = form.cleaned_data.get('username')
+
+            group = Group.objects.get(name='customer')
+            user.groups.add(group)
+
+            messages.success(request, 'Registrations Successful for ' + username)
 
             return redirect('login')
 
