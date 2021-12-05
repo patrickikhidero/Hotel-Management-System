@@ -4,7 +4,6 @@ import uuid
 # import psycopg2 
 from django.contrib.auth.models import AbstractUser, User
 
-
 # class UserProfile(AbstractUser): 
 #     first_name = models.CharField(max_length=50, blank=True, null=True) 
 #     last_name = models.CharField(max_length=50, blank=True, null=True) 
@@ -83,22 +82,22 @@ class Room(models.Model) :
 class Customer(models.Model) : 
     id = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4, editable=False) 
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=200) 
-    last_name = models.CharField(max_length=200) 
-    email = models.EmailField(unique=True) 
+    first_name = models.CharField(null=True, max_length=200) 
+    last_name = models.CharField(null=True, max_length=200) 
+    email = models.EmailField(null=True, unique=True) 
     username = models.CharField(null=True, max_length=100) 
     email_verified = models.BooleanField(null=True, unique=True) 
-    phone_number = models.CharField(max_length=100, unique=True) 
-    profile_pic = models.ImageField(null=True, blank=True)
-    next_of_kin_fullname = models.CharField(max_length=100) 
-    next_of_kin_phone_number = models.CharField(max_length=100, unique=True) 
+    phone_number = models.CharField(null=True, max_length=100, unique=True) 
+    profile_pic = models.ImageField(default='avataruser.png', null=True, blank=True)
+    next_of_kin_fullname = models.CharField(null=True, max_length=100) 
+    next_of_kin_phone_number = models.CharField(null=True, max_length=100, unique=True) 
     created_at = models.DateTimeField(auto_now_add=True, null=True) 
     updated_at = models.DateTimeField(auto_now=True) 
     
     def __str__(self) : 
-        return f'{self.first_name} {self.last_name} {self.phone_number}' 
-        
-        
+        return f'{self.user}' 
+
+
 class PaymentType(models.Model) : 
     id = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4, editable=False) 
     name = models.CharField(max_length=200) 
