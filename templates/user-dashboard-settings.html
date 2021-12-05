@@ -74,7 +74,7 @@
                             <div class="form-content">
                                 <div class="user-profile-action d-flex align-items-center pb-4">
                                     <div class="user-pro-img">
-                                        <img src="images/team1.jpg" alt="user-image">
+                                        <img src="{{request.user.customer.profile_pic.url}}" alt="user-image">
                                     </div>
                                     <div class="upload-btn-box">
                                         <p class="pb-2 font-size-15 line-height-24">Max file size is 5MB, Minimum dimension: 150x150 And Suitable files are .jpg &amp; .png</p>
@@ -86,8 +86,14 @@
                                     </div>
                                 </div>
                                 <div class="contact-form-action">
-                                    <form action="#">
-                                        <div class="row">
+                                    <form action="" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+
+                                        {{form.as_p}}
+
+                                        <input class="btn btn-success" type="submit" name="Update Information">
+                                        
+                                        <!-- <div class="row">
                                             <div class="col-lg-6 responsive-column">
                                                 <div class="input-box">
                                                     <label class="label-text">First Name</label>
@@ -96,7 +102,7 @@
                                                         <input class="form-control" type="text" value="Ali">
                                                     </div>
                                                 </div>
-                                            </div><!-- end col-lg-6 -->
+                                            </div><!- end col-lg-6 ->
                                             <div class="col-lg-6 responsive-column">
                                                 <div class="input-box">
                                                     <label class="label-text">Last Name</label>
@@ -105,7 +111,7 @@
                                                         <input class="form-control" type="text" value="Tufan">
                                                     </div>
                                                 </div>
-                                            </div><!-- end col-lg-6 -->
+                                            </div><!- end col-lg-6 ->
                                             <div class="col-lg-6 responsive-column">
                                                 <div class="input-box">
                                                     <label class="label-text">Email Address</label>
@@ -114,7 +120,7 @@
                                                         <input class="form-control" type="text" value="alitufan@gmail.com">
                                                     </div>
                                                 </div>
-                                            </div><!-- end col-lg-6 -->
+                                            </div><!- end col-lg-6 ->
                                             <div class="col-lg-6 responsive-column">
                                                 <div class="input-box">
                                                     <label class="label-text">Phone number</label>
@@ -123,7 +129,7 @@
                                                         <input class="form-control" type="text" value="+01 4561 3214">
                                                     </div>
                                                 </div>
-                                            </div><!-- end col-lg-6 -->
+                                            </div><!- end col-lg-6 ->
                                             <div class="col-lg-6 responsive-column">
                                                 <div class="input-box">
                                                     <label class="label-text">Date of birth</label>
@@ -132,7 +138,7 @@
                                                         <input class="form-control" type="text" value="03 Jun 1990">
                                                     </div>
                                                 </div>
-                                            </div><!-- end col-lg-6 -->
+                                            </div><!- end col-lg-6 ->
                                              <div class="col-lg-6 responsive-column">
                                                 <div class="input-box">
                                                     <label class="label-text">Address</label>
@@ -140,14 +146,14 @@
                                                         <span class="la la-map form-icon"></span>
                                                         <input class="form-control" type="text" value="8800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A.">
                                                     </div>
-                                                </div>
-                                            </div><!-- end col-lg-6 -->
+                                                </div> ->
+                                            </div><!- end col-lg-6 ->
                                             <div class="col-lg-12">
                                                 <div class="btn-box">
                                                     <button class="theme-btn" type="button">Save Changes</button>
                                                 </div>
-                                            </div><!-- end col-lg-12 -->
-                                        </div><!-- end row -->
+                                            </div><!- end col-lg-12 ->
+                                        </div><!- end row -->
                                     </form>
                                 </div>
                             </div>
@@ -160,7 +166,7 @@
                             </div>
                             <div class="form-content">
                                 <div class="contact-form-action">
-                                    <form action="#">
+                                    <form action="" method="post">
                                         <div class="row">
                                             <div class="col-lg-12 responsive-column">
                                                 <div class="input-box">
@@ -207,7 +213,7 @@
                             </div>
                             <div class="form-content">
                                 <div class="contact-form-action">
-                                    <form action="#">
+                                    <form action="" method="post">
                                         <div class="row">
                                             <div class="col-lg-6 responsive-column">
                                                 <div class="input-box">

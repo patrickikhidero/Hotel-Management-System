@@ -8,7 +8,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import  User
 from django.contrib.auth.decorators import  login_required
 from .models import * 
-from .forms import CreateUserForm
+from .forms import CreateUserForm, CustomerForm
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user, allowed_users, admin_only
@@ -73,7 +73,16 @@ def user_dashboard_wishlist(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def user_dashboard_settings(request):
-    return render(request, 'user-dashboard-settings.html')
+    customer = request.user.customer
+    form = CustomerForm(instance=customer)
+
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, request.FILES, instance=customer)
+        if form.is_valid():
+            form.save()
+            
+    context = {'form':form}
+    return render(request, 'user-dashboard-settings.html', context)
 
 
 @login_required(login_url='login')
@@ -115,6 +124,9 @@ def registerPage(request):
 
             group = Group.objects.get(name='customer')
             user.groups.add(group)
+            Customer.objects.create(
+                user=user,
+            )
 
             messages.success(request, 'Registrations Successful for ' + username)
 
