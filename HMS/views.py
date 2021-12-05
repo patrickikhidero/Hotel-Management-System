@@ -122,11 +122,13 @@ def registerPage(request):
             user = form.save()
             username = form.cleaned_data.get('username')
 
-            group = Group.objects.get(name='customer')
-            user.groups.add(group)
-            Customer.objects.create(
-                user=user,
-            )
+            # group = Group.objects.get(name='customer')
+            # user.groups.add(group)
+            
+            # Customer.objects.create(
+            #     user=user,
+            #     name = user.username,
+            # )
 
             messages.success(request, 'Registrations Successful for ' + username)
 
@@ -138,62 +140,6 @@ def registerPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
-       
-def signup(request):
-    if request.user.is_authenticated:
-        return redirect('dashboard')
-    if request.method == 'POST':
-        firstname = request.POST['firstname']
-        lastname = request.POST['lastname']
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
-        confirm_password = request.POST['confirm_password']
-        if password == confirm_password:
-            if User.objects.get(email=email).exists():
-                messages.error(request, 'User already exists')
-                return redirect('signup')
-            else:
-                user = User.objects.create_user(username=username, password=password, email = email, first_name=firstname, last_name=lastname)
-                auth.login(request, user)
-                messages.success(request, 'You are now logged in')
-                user.save()
-                return redirect('dashboard')
-        else:
-            messages.error(request, 'Password does not match')
-            return redirect('signup')
-    else:
-        return render(request, 'signup.html')
-
-def signin(request):
-    if request.user.is_authenticated:
-        return render(request, 'index.html')
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('dashboad')
-        else:
-            form = AuthenticationForm(request.POST)
-            return render(request, 'login.html', {'form': form})
-    else:
-        form = AuthenticationForm()
-        return render(request, 'login.html', {'form': form})
-
-def signout(request):
-    logout(request)
-    return redirect('home')
-
-    # @login_required(login_url='signin')
-    # def dashboard(request):
-    #     blogs = Post.objects.order_by('-created_on').filter(author_id=request.user.id)
-    #     data = {
-    #         'hotel': config,
-    #     }
-    #     return render(request, 'dashboard.html', data)
-
 
 
 
