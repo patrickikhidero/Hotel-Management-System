@@ -7,7 +7,7 @@
         <div class="author-content">
             <div class="d-flex align-items-center">
                 <div class="author-img avatar-sm">
-                    <img src="{% static 'images/team8.jpg' %}" alt="testimonial image">
+                    <img src="{{request.user.customer.profile_pic.url}}" alt="testimonial image">
                 </div>
                 <div class="author-bio">
                     <h4 class="author__title">{{request.user}}</h4>

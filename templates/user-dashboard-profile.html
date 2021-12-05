@@ -86,7 +86,7 @@
                                                     </div>
                                                 </td>
                                                 <td>:</td>
-                                                <td>Ali</td>
+                                                <td>{{request.user.customer.first_name}}</td>
                                             </tr>
                                              <tr>
                                                 <td class="pl-0">
@@ -95,7 +95,7 @@
                                                     </div>
                                                 </td>
                                                 <td>:</td>
-                                                <td>Tufan</td>
+                                                <td>{{request.user.customer.last_name}}</td>
                                             </tr>
                                             <tr>
                                                 <td class="pl-0">
@@ -104,7 +104,7 @@
                                                     </div>
                                                 </td>
                                                 <td>:</td>
-                                                <td>alitufan@gmail.com</td>
+                                                <td>{{request.user.customer.email}}</td>
                                             </tr>
                                             <tr>
                                                 <td class="pl-0">
@@ -113,16 +113,7 @@
                                                     </div>
                                                 </td>
                                                 <td>:</td>
-                                                <td>+01 4561 3214</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="pl-0">
-                                                    <div class="table-content">
-                                                        <h3 class="title font-weight-medium">Date of Birth</h3>
-                                                    </div>
-                                                </td>
-                                                <td>:</td>
-                                                <td>03 Jun 1990</td>
+                                                <td>{{request.user.customer.phone_number}}</td>
                                             </tr>
                                             <tr>
                                                 <td class="pl-0">
@@ -131,7 +122,7 @@
                                                     </div>
                                                 </td>
                                                 <td>:</td>
-                                                <td>8800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A.</td>
+                                                <td>{{request.user.customer.address}}</td>
                                             </tr>
                                         </tbody>
                                     </table>

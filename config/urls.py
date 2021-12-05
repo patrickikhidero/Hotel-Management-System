@@ -23,6 +23,8 @@ from . import views
 from django.urls import path
 
 # from .views import index, about
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 
@@ -31,4 +33,6 @@ urlpatterns = [
     url(r'^', include('HMS.urls')),
     url(r'^adminpage/', include('adminpage.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root =settings.MEDIA_ROOT)
 
