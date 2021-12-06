@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.views import generic
+from django.views.generic import ListView
 from django.contrib import messages, auth
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
@@ -141,6 +141,11 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
+class RoomList(ListView):
+    model=Room
+
+class BookingList(ListView):
+    model=Booking
 
 
         

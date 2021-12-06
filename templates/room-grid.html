@@ -1108,6 +1108,7 @@
                     </div><!-- end section-heading -->
                     <div class="contact-form-action padding-top-40px">
                         <form action="#">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-lg-3">
                                     <div class="input-box">
@@ -1238,6 +1239,7 @@
                 <div class="modal-body">
                     <div class="contact-form-action">
                         <form method="post">
+                            {% csrf_token %}
                             <div class="input-box">
                                 <label class="label-text">Username</label>
                                 <div class="form-group">
@@ -1303,6 +1305,7 @@
                 <div class="modal-body">
                     <div class="contact-form-action">
                         <form method="post">
+                            {% csrf_token %}
                             <div class="input-box">
                                 <label class="label-text">Username</label>
                                 <div class="form-group">
@@ -1362,6 +1365,7 @@
                 <div class="modal-body">
                     <div class="contact-form-action">
                         <form action="#">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="input-box">
