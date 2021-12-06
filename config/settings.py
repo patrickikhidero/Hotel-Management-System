@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'adminpage',
     'HMS.apps.HmsConfig',
+    'HMS.booking_functions',
 ]
 
 MIDDLEWARE = [
