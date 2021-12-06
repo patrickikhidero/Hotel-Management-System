@@ -141,11 +141,11 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
-class RoomList(ListView):
-    model=Room
+# class RoomList(ListView):
+#     model=Room
 
-class BookingList(ListView):
-    model=Booking
+# class BookingList(ListView):
+#     model=Booking
 
 
         
