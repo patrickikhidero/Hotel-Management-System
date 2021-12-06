@@ -45,36 +45,49 @@ class Room(models.Model):
     category = models.CharField(max_length=24, default = 0, choices=room_types) 
     beds = models.IntegerField(default=0)
     capacity =  models.IntegerField(default=0)
-
-
-    # id = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4, editable=False) 
-    # type = models.CharField(max_length=100, choices=types) 
-    # price = models.CharField(max_length=100) 
-    # created_at = models.DateTimeField(auto_now_add=True, null=True) 
-    # updated_at = models.DateTimeField(auto_now=True) 
-        
+    amount =  models.IntegerField(default=0)
+  
     def __str__(self): 
-        return f'{self.numbers}. {self.category} with {self.beds} for {self.capacity} people' 
+        return f'{self.category} with {self.beds}bed(s), and {self.capacity} occupant(s). Cost is {self.amount}' 
 
-
-class Booking(models.Model):
-     user = models.ForeignKey(User, default = 0, on_delete=models.CASCADE)
-     room = models.ForeignKey(Room, default = 0, on_delete=CASCADE)
-     check_in = models.DateTimeField(default = datetime.now, blank = True)
-     check_out = models.DateTimeField(default = datetime.now, blank = True)
-
-     def __str__(self):
-         return f'{self.user}. has booked{self.room} from {self.check_in} to {self.check_out}'
-    
-        
-class RoomStatus(models.Model) : 
-    id = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4, editable=False) 
-    status = models.CharField(max_length=100) 
+class Payment(models.Model) : 
+    user = models.ForeignKey(User, default = 0, on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, default = 0, on_delete=CASCADE)
+    price = models.CharField(max_length=200, null=True) 
     created_at = models.DateTimeField(auto_now_add=True, null=True) 
     updated_at = models.DateTimeField(auto_now=True) 
     
     def __str__(self) : 
-        return self.status 
+        return f'{self.user} paid {self.price}'
+
+class RoomStatus(models.Model) : 
+    room_status = [ 
+        ('Pending', 'Pending'),
+        ('Paid', 'Paid'), 
+        ('Expired', 'Expired'), 
+    ]
+    user = models.ForeignKey(User, default = 0, on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, default = 0, on_delete=CASCADE)
+    status = models.CharField(max_length=20, default = 0, choices=room_status)
+    created_at = models.DateTimeField(auto_now_add=True, null=True) 
+    updated_at = models.DateTimeField(auto_now=True) 
+    
+    def __str__(self) : 
+        return f'{self.room} is currently {self.status}'
+
+class Booking(models.Model):
+    user = models.ForeignKey(User, default = 0, on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, default = 0, on_delete=CASCADE)
+    location = models.CharField(null=True, max_length=100) 
+    check_in = models.DateTimeField(default = datetime.now, blank = True)
+    check_out = models.DateTimeField(default = datetime.now, blank = True)
+    payment_id = models.ForeignKey(Payment, on_delete=models.CASCADE, null=True) 
+    status = models.ForeignKey(RoomStatus, on_delete=models.CASCADE, null=True) 
+    def __str__(self):
+        return f'{self.user} has booked {self.room} located at {self.location}'
+    
+        
+
 
 
 # class RoomType(models.Model) : 
@@ -114,40 +127,24 @@ class Customer(models.Model) :
     def __str__(self) : 
         return f'{self.user}' 
 
-
-class PaymentType(models.Model) : 
-    id = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4, editable=False) 
-    name = models.CharField(max_length=200) 
-    created_at = models.DateTimeField(auto_now_add=True, null=True) 
-    updated_at = models.DateTimeField(auto_now=True) 
-    
-    def __str__(self) : 
-        return self.name 
         
 class Bookings(models.Model) : 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
     room_id = models.ForeignKey(Room, on_delete=models.CASCADE, null=True) 
     customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE) 
     staff_id = models.ForeignKey(Receptionist, on_delete=models.CASCADE, null=True) 
-    payment_id = models.ForeignKey(PaymentType, on_delete=models.CASCADE, null=True) 
+    payment_id = models.ForeignKey(Payment, on_delete=models.CASCADE, null=True) 
     start_time = models.DateField(blank=True, null=True) 
     end_time = models.DateField(blank=True, null=True) 
     created_at = models.DateTimeField(auto_now_add=True, null=True) 
     updated_at = models.DateTimeField(auto_now=True) 
+    status = models.CharField(null=True, max_length=20) 
     
-
-class Payment(models.Model) : 
-    room_id = models.ForeignKey(Room, on_delete=models.CASCADE) 
-    customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE) 
-    payment_id = models.ForeignKey(PaymentType, on_delete=models.CASCADE) 
-    created_at = models.DateTimeField(auto_now_add=True, null=True) 
-    updated_at = models.DateTimeField(auto_now=True) 
-
 
 class Reservation(models.Model) : 
     id = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4, editable=False) 
     room_id = models.ForeignKey(Room, on_delete=models.CASCADE) 
-    payment_id = models.ForeignKey(PaymentType, on_delete=models.CASCADE) 
+    payment_id = models.ForeignKey(Payment, on_delete=models.CASCADE) 
     customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE) 
     staff_id = models.ForeignKey(Receptionist, on_delete=models.CASCADE) 
     start_time = models.DateTimeField() 

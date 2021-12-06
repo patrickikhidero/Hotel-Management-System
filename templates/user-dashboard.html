@@ -64,7 +64,7 @@
                     </div><!-- end col-lg-6 -->
                 </div><!-- end row -->
                 <div class="row mt-4">
-                    <div class="col-lg-3 responsive-column-m">
+                    <div class="col-lg-4 responsive-column-m">
                         <div class="icon-box icon-layout-2 dashboard-icon-box">
                             <div class="d-flex">
                                 <div class="info-icon icon-element flex-shrink-0">
@@ -72,50 +72,38 @@
                                 </div><!-- end info-icon-->
                                 <div class="info-content">
                                     <p class="info__desc">Total Booking</p>
-                                    <h4 class="info__title">44</h4>
+                                    <h4 class="info__title">{{request.user.customer.total_bookings}}</h4>
                                 </div><!-- end info-content -->
                             </div>
                         </div>
-                    </div><!-- end col-lg-3 -->
-                    <div class="col-lg-3 responsive-column-m">
+                    </div><!-- end col-lg-4 -->
+                    <div class="col-lg-4 responsive-column-m">
                         <div class="icon-box icon-layout-2 dashboard-icon-box">
                             <div class="d-flex">
                                 <div class="info-icon icon-element bg-2 flex-shrink-0">
-                                   <i class="la la-bookmark"></i>
+                                   <i class="la la-lock"></i>
                                 </div><!-- end info-icon-->
                                 <div class="info-content">
-                                    <p class="info__desc">Wishlist</p>
-                                    <h4 class="info__title">15</h4>
+                                    <p class="info__desc">Total Completed</p>
+                                    <h4 class="info__title">{{request.user.customer.total_completed}}</h4>
                                 </div><!-- end info-content -->
                             </div>
                         </div>
-                    </div><!-- end col-lg-3 -->
-                    <div class="col-lg-3 responsive-column-m">
+                    </div><!-- end col-lg-4 -->
+                    <div class="col-lg-4 responsive-column-m">
                         <div class="icon-box icon-layout-2 dashboard-icon-box">
                             <div class="d-flex">
                                 <div class="info-icon icon-element bg-3 flex-shrink-0">
-                                   <i class="la la-plane"></i>
+                                   <i class="la la-lock-open"></i>
                                 </div><!-- end info-icon-->
                                 <div class="info-content">
-                                    <p class="info__desc">Total Travel</p>
-                                    <h4 class="info__title">25</h4>
+                                    <p class="info__desc">Total Pendings</p>
+                                    <h4 class="info__title">{{request.user.customer.total_pendings}}</h4>
                                 </div><!-- end info-content -->
                             </div>
                         </div>
-                    </div><!-- end col-lg-3 -->
-                    <div class="col-lg-3 responsive-column-m">
-                        <div class="icon-box icon-layout-2 dashboard-icon-box">
-                            <div class="d-flex">
-                                <div class="info-icon icon-element bg-4 flex-shrink-0">
-                                   <i class="la la-star"></i>
-                                </div><!-- end info-icon-->
-                                <div class="info-content">
-                                    <p class="info__desc">Reviews</p>
-                                    <h4 class="info__title">20</h4>
-                                </div><!-- end info-content -->
-                            </div>
-                        </div>
-                    </div><!-- end col-lg-3 -->
+                    </div><!-- end col-lg-4 -->
+                    
                 </div><!-- end row -->
             </div>
         </div><!-- end dashboard-bread -->
