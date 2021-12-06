@@ -50,10 +50,26 @@ def room_details(request):
 def room_grid(request):
     return render(request, 'room-grid.html')
 
+# def customer_data(request, user_pk):
+#     customer = Customer.objects.get(id=user_pk)
+
+#     return render(request, 'user')
+
+
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def user_dashboard_booking(request):
-    return render(request, 'user-dashboard-booking.html')
+
+    bookings = Booking.objects.all()
+    rooms = RoomStatus.objects.all()
+    payment = Payment.objects.all()
+    room_status = RoomStatus.objects.all()
+
+    total_bookings = bookings.count()
+    total_pendings = room_status.filter(status='Pending').count()
+    total_completed = room_status.filter(status='Expired').count()
+    return render(request, 'user-dashboard-booking.html', {'bookings':bookings, 'rooms':rooms, 'payment':payment, 'total_bookings': total_bookings})
+
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
@@ -88,7 +104,16 @@ def user_dashboard_settings(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def user_dashboard(request):
-    return render(request, 'user-dashboard.html')
+    customer = request.user.customer
+    bookings = Booking.objects.all()
+    rooms = RoomStatus.objects.all()
+    payment = Payment.objects.all()
+    room_status = RoomStatus.objects.all()
+
+    total_bookings = bookings.count()
+    total_pendings = room_status.filter(status='Pending').count()
+    total_completed = room_status.filter(status='Expired').count()
+    return render(request, 'user-dashboard.html', {'total_bookings':total_bookings, 'total_completed':total_completed, 'total_pendings':total_pendings})
 
 
 @login_required(login_url='login')

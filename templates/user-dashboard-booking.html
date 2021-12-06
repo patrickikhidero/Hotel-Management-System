@@ -71,9 +71,9 @@
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div>
                                         <h3 class="title">Booking Results</h3>
-                                        <p class="font-size-14">Showing 1 to 7 of 17 entries</p>
+                                        <p class="font-size-14">Showing 1 to 4 of {{request.user.customer.total_bookings}} entries</p>
                                     </div>
-                                    <span>Total Bookings <strong class="color-text">(17)</strong></span>
+                                    <span>Total Bookings <strong class="color-text">{{total_bookings}}</strong></span>
                                 </div>
                             </div>
                             <div class="form-content">
@@ -81,143 +81,28 @@
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th scope="col">Type</th>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Location</th>
-                                            <th scope="col">Order Date</th>
-                                            <th scope="col">Execution Date</th>
+                                            <th scope="col">Destination</th>
+                                            <th scope="col">Room</th>
+                                            <th scope="col">Check In</th>
+                                            <th scope="col">Check Out</th>
                                             <th scope="col">Price</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <th scope="row"><i class="la la-plane mr-1 font-size-18"></i>Flight</th>
-                                            <td>
-                                                <div class="table-content">
-                                                    <h3 class="title">London to New York City</h3>
-                                                </div>
-                                            </td>
-                                            <td>New York City</td>
-                                            <td>30/6/2020</td>
-                                            <td>2/6/2020</td>
-                                            <td>$350</td>
-                                            <td><span class="badge badge-info py-1 px-2">Pending</span></td>
-                                            <td>
-                                                <div class="table-content">
-                                                   <button class="theme-btn theme-btn-small">Cancel</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><i class="la la-car mr-1 font-size-18"></i>Car</th>
-                                            <td>
-                                                <div class="table-content">
-                                                    <h3 class="title">Mercedes-Benz A 200 CDI</h3>
-                                                </div>
-                                            </td>
-                                            <td>Greater London, United Kingdom</td>
-                                            <td>30/6/2020</td>
-                                            <td>2/6/2020</td>
-                                            <td>$350</td>
-                                            <td><span class="badge badge-success py-1 px-2">Completed</span></td>
-                                            <td>
-                                                <div class="table-content">
-                                                   <button class="theme-btn theme-btn-small">Cancel</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><i class="la la-tree mr-1 font-size-18"></i>Tour</th>
-                                            <td>
-                                                <div class="table-content">
-                                                    <h3 class="title">InterContinental New York Barclay</h3>
-                                                </div>
-                                            </td>
-                                            <td>Istanbul , Turkey</td>
-                                            <td>30/6/2020</td>
-                                            <td>2/6/2020</td>
-                                            <td>$350</td>
-                                            <td><span class="badge badge-warning py-1 px-2">Delayed</span></td>
-                                            <td>
-                                                <div class="table-content">
-                                                   <button class="theme-btn theme-btn-small">Cancel</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><i class="la la-ship mr-1 font-size-18"></i>Cruise</th>
-                                            <td>
-                                                <div class="table-content">
-                                                    <h3 class="title">5 Nights Bermuda Cruise</h3>
-                                                </div>
-                                            </td>
-                                            <td>Miami, Florida</td>
-                                            <td>30/6/2020</td>
-                                            <td>2/6/2020</td>
-                                            <td>$350</td>
-                                            <td><span class="badge badge-info py-1 px-2">On schedule</span></td>
-                                            <td>
-                                                <div class="table-content">
-                                                   <button class="theme-btn theme-btn-small">Cancel</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><i class="la la-building mr-1 font-size-18"></i>Hotel</th>
-                                            <td>
-                                                <div class="table-content">
-                                                    <h3 class="title">Melia White House Hotel</h3>
-                                                </div>
-                                            </td>
-                                            <td>Boston, Massachusetts</td>
-                                            <td>30/6/2020</td>
-                                            <td>2/6/2020</td>
-                                            <td>$350</td>
-                                            <td><span class="badge badge-success py-1 px-2">Completed</span></td>
-                                            <td>
-                                                <div class="table-content">
-                                                   <button class="theme-btn theme-btn-small">Cancel</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><i class="la la-tree mr-1 font-size-18"></i>Tour</th>
-                                            <td>
-                                                <div class="table-content">
-                                                    <h3 class="title">Hut on Blue Water Beach Tour</h3>
-                                                </div>
-                                            </td>
-                                            <td>124 Nevada, Las Vegas</td>
-                                            <td>30/6/2020</td>
-                                            <td>2/6/2020</td>
-                                            <td>$350</td>
-                                            <td><span class="badge badge-success py-1 px-2">Completed</span></td>
-                                            <td>
-                                                <div class="table-content">
-                                                   <button class="theme-btn theme-btn-small">Cancel</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><i class="la la-plane mr-1 font-size-18"></i>Flight</th>
-                                            <td>
-                                                <div class="table-content">
-                                                    <h3 class="title">Rome to Australia</h3>
-                                                </div>
-                                            </td>
-                                            <td>New York City</td>
-                                            <td>30/6/2020</td>
-                                            <td>2/6/2020</td>
-                                            <td>$350</td>
-                                            <td><span class="badge badge-success py-1 px-2">Completed</span></td>
-                                            <td>
-                                                <div class="table-content">
-                                                   <button class="theme-btn theme-btn-small">Cancel</button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                            {% for i in bookings %}
+                                                <tr>
+                                                    <td> {{i.location}} </td>
+                                                    <td> {{i.room.category}} </td>
+                                                    <td> {{i.check_in}} </td>
+                                                    <td> {{i.check_out}} </td>
+                                                    <td> {{i.payment_id.price}} </td>
+                                                    <td> {{i.status.status}} </td>
+                                                    <td> <button type="submit" class="theme-btn theme-btn-small" name="cancel">Cancel</button></td>
+                                                </tr>
+
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>
