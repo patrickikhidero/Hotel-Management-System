@@ -59,16 +59,17 @@ def room_grid(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def user_dashboard_booking(request):
-
     bookings = Booking.objects.all()
     rooms = RoomStatus.objects.all()
     payment = Payment.objects.all()
     room_status = RoomStatus.objects.all()
-
-    total_bookings = bookings.count()
-    total_pendings = room_status.filter(status='Pending').count()
-    total_completed = room_status.filter(status='Expired').count()
-    return render(request, 'user-dashboard-booking.html', {'bookings':bookings, 'rooms':rooms, 'payment':payment, 'total_bookings': total_bookings})
+    bookings_hold = bookings.filter(user=request.user)
+    rooms_hold = rooms.filter(user=request.user)
+    payment_hold = payment.filter(user=request.user)
+    total_bookings = bookings.filter(user=request.user).count()
+    total_pendings = room_status.filter(user=request.user, status='Pending').count()
+    total_completed = room_status.filter(user=request.user, status='Expired').count()
+    return render(request, 'user-dashboard-booking.html', {'bookings':bookings_hold, 'rooms':rooms_hold, 'payment':payment_hold, 'total_bookings': total_bookings})
 
 
 @login_required(login_url='login')
@@ -104,16 +105,15 @@ def user_dashboard_settings(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def user_dashboard(request):
-    customer = request.user.customer
     bookings = Booking.objects.all()
     rooms = RoomStatus.objects.all()
     payment = Payment.objects.all()
     room_status = RoomStatus.objects.all()
-
-    total_bookings = bookings.count()
-    total_pendings = room_status.filter(status='Pending').count()
-    total_completed = room_status.filter(status='Expired').count()
-    return render(request, 'user-dashboard.html', {'total_bookings':total_bookings, 'total_completed':total_completed, 'total_pendings':total_pendings})
+    total_bookings = bookings.filter(user=request.user).count()
+    
+    total_pendings = room_status.filter(user=request.user,status='Pending').count()
+    total_completed = room_status.filter(user=request.user,status='Expired').count()
+    return render(request, 'user-dashboard.html', {'total_bookings': total_bookings, 'total_completed':total_completed, 'total_pendings':total_pendings})
 
 
 @login_required(login_url='login')
