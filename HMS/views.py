@@ -1,5 +1,6 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.http.request import HttpRequest
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic import ListView
 from django.contrib import messages, auth
 from django.contrib.auth import authenticate, login, logout
@@ -7,11 +8,14 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import  User
 from django.contrib.auth.decorators import  login_required
+import requests
 from .models import * 
+from . import forms
 from .forms import CreateUserForm, CustomerForm
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user, allowed_users, admin_only
+from django.conf import settings
 
 @login_required(login_url='login')
 @admin_only
@@ -47,6 +51,29 @@ def contact(request):
 
 def page_404(request):
     return render(request, 'page-404.html')
+
+def initiate_payment(request: HttpRequest) -> HttpResponse:
+    if request.method == "POST":
+        payment_form = forms.PaymentForm(request.POST)
+        if payment_form.is_valid():
+            payment = payment_form.save()
+            public_key = 'pk_test_16213e605869c12fef3c6c828d1361a4921412dd'
+            return render(request, 'make_payment.html', {'payment': payment, 'paystack_public_key': public_key})
+    else:
+        payment_form = forms.PaymentForm()
+
+    return render(request, 'initiate_payment.html', {'payment_form': payment_form})
+
+
+def verify_payment(request: HttpRequest, ref: str) -> HttpResponse:
+    payment = get_object_or_404(Payment, ref=ref)
+    verified = payment.verify_payment()
+    if verified:
+        messages.success(request, "Successful Verifiction")
+    else:
+        messages.error(request, "Unable to verify your payment, please you balance.")
+    return redirect('initiate-payment')
+
 
 def payment_complete(request):
     return render(request, 'payment-complete.html')
