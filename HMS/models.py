@@ -6,6 +6,8 @@ from django.contrib.auth.models import AbstractUser, User
 from django.db.models.deletion import CASCADE
 from django.forms.utils import to_current_timezone
 from django.utils.timezone import  datetime
+import secrets
+from .paystack import PayStack
 
 # class UserProfile(AbstractUser): 
 #     first_name = models.CharField(max_length=50, blank=True, null=True) 
@@ -51,14 +53,41 @@ class Room(models.Model):
         return f'{self.category} with {self.beds}bed(s), and {self.capacity} occupant(s). Cost is {self.amount}' 
 
 class Payment(models.Model) : 
-    user = models.ForeignKey(User, default = 0, on_delete=models.CASCADE)
-    room = models.ForeignKey(Room, default = 0, on_delete=CASCADE)
-    price = models.CharField(max_length=200, null=True) 
+    # user = models.ForeignKey(User, default = 0, on_delete=models.CASCADE)
+    # room = models.ForeignKey(Room, default = 0, on_delete=CASCADE)
+    email = models.EmailField(null=True)
+    ref = models.CharField(max_length=200, null=True)
+    amount = models.PositiveIntegerField(null=True) 
+    verified = models.BooleanField(default=False, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True) 
     updated_at = models.DateTimeField(auto_now=True) 
+    class Meta:
+        ordering = ('-created_at',)
+    def __str__(self) -> str : 
+        return f"Payment: {self.amount}"
     
-    def __str__(self) : 
-        return f'{self.user} paid {self.price}'
+    def save(self, *args, **kwargs) -> None:
+        while not self.ref:
+            ref = secrets.token_urlsafe(50)
+            object_with_similar_ref = Payment.objects.filter(ref=ref)
+            if not object_with_similar_ref:
+                self.ref = ref
+        super().save(*args, **kwargs)
+    
+    def amount_value(self) -> int:
+        return self.amount * 100
+    
+    def verify_payment(self):
+        paystack = PayStack()
+        status, result = paystack.verify_payment(self.ref, self.amount)
+        if status:
+            if result['amount'] / 100 == self.amount:
+                self.verified = True
+            self.save()
+        if self.verified:
+            return True
+        return False
+
 
 class RoomStatus(models.Model) : 
     room_status = [ 

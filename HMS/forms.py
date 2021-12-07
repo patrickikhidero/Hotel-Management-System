@@ -19,4 +19,11 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+
+class PaymentForm(forms.ModelForm):
+    class Meta:
+        model = Payment
+        # model = User
+        # fields = ('price', 'user')
+        fields = ('amount', 'email')
         

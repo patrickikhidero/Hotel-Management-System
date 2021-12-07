@@ -1,5 +1,6 @@
 from HMS import views
 from django.conf.urls import url
+from django.urls import path
 from django.contrib import admin
  
 # from django.conf.urls.static import static
@@ -29,6 +30,9 @@ urlpatterns = [
     url(r'^register/$', views.registerPage, name = "register"),
     url(r'^logout/$', views.logoutUser, name = "logout"),
     url(r'^receptionist/$', views.receptionist, name = "receptionist"),
+    url(r'^initiate_payment/$', views.initiate_payment, name = "initiate_payment"),
+    path('<str:ref>/', views.verify_payment, name="verify_payment")
+
 ]
 
 # urlpatterns += static(settings.MEDIA_URL, document_root =settings.MEDIA_ROOT)
