@@ -43,11 +43,12 @@ class Room(models.Model):
         ('Private Room', 'Private Room'), 
         ('Suites', 'Suites'),
     ]
-    numbers = models.IntegerField(default = 0,)
+    numbers = models.IntegerField(default = 0)
     category = models.CharField(max_length=24, default = 0, choices=room_types) 
     beds = models.IntegerField(default=0)
     capacity =  models.IntegerField(default=0)
     amount =  models.IntegerField(default=0)
+    room_pic = models.ImageField(null=True, blank=True)
   
     def __str__(self): 
         return f'{self.category} with {self.beds}bed(s), and {self.capacity} occupant(s). Cost is {self.amount}' 
@@ -114,28 +115,6 @@ class Booking(models.Model):
     status = models.ForeignKey(RoomStatus, on_delete=models.CASCADE, null=True) 
     def __str__(self):
         return f'{self.user} has booked {self.room} located at {self.location}'
-    
-        
-
-
-
-# class RoomType(models.Model) : 
-#     id = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4, editable=False) 
-#     room_type_id = models.ForeignKey(Room, on_delete=models.CASCADE) 
-#     room_no = models.CharField(max_length=50) 
-#     location = models.CharField(max_length=200) 
-#     description = models.TextField(null=True) 
-#     single_room_img = models.TextField(null = True) 
-#     single_room_img2 = models.TextField(null=True) 
-#     img_url = models.TextField(null=True) 
-#     room_status_id = models.ForeignKey(RoomStatus, on_delete=models.CASCADE) 
-#     price = models.CharField(max_length=100) 
-#     booked = models.BooleanField(default=False) 
-#     created_at = models.DateTimeField(auto_now_add=True) 
-#     updated_at = models.DateTimeField(auto_now=True) 
-    
-#     def __str__(self) : 
-#         return f'{self.room_type_id}' 
         
         
 class Customer(models.Model) : 
@@ -155,7 +134,6 @@ class Customer(models.Model) :
     
     def __str__(self) : 
         return f'{self.user}' 
-
         
 class Bookings(models.Model) : 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 

@@ -11,7 +11,7 @@ class CustomerForm(ModelForm):
     class Meta:
         model = Customer
         fields = '__all__'
-        exclude = ['user']
+        exclude = ['user','email_varified',]
 
 
 
@@ -25,5 +25,5 @@ class PaymentForm(forms.ModelForm):
         model = Payment
         # model = User
         # fields = ('price', 'user')
-        fields = ('amount', 'email')
+        fields = ('amount','email',)
         
