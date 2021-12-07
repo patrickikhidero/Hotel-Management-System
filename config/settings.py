@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'adminpage',
     'HMS.apps.HmsConfig',
     'HMS.booking_functions',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -136,3 +139,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'config/static/images')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+PAYSTACK_SECRET_KEY = os.environ.get('sk_test_27b63b4b6622b3852c34ba34dd49ebc9287b86aa')
+PAYSTACK_PRIVATE_KEY = os.environ.get('PAYSTACK_PRIVATE_KEY')
