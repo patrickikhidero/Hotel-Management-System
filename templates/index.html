@@ -77,31 +77,12 @@
                                         <div class="form-group">
                                             <div class="select-contain select-contain-shadow w-auto">
                                                 <select class="select-contain-select">
-                                                    <option value="0">Select Type</option>
-                                                    <option value="1">Single</option>
-                                                    <option value="2">Double</option>
-                                                    <option value="3">Triple</option>
-                                                    <option value="4">Quad</option>
-                                                    <option value="5">Queen</option>
-                                                    <option value="6">King</option>
-                                                    <option value="7">Twin</option>
-                                                    <option value="8">Double-double</option>
-                                                    <option value="9">Studio</option>
-                                                    <option value="10">Suite</option>
-                                                    <option value="11">Mini Suite</option>
-                                                    <option value="12">President Suite</option>
-                                                    <option value="13">President Suite</option>
-                                                    <option value="14">Apartments</option>
-                                                    <option value="15">Connecting rooms</option>
-                                                    <option value="16">Murphy Room</option>
-                                                    <option value="17">Accessible Room</option>
-                                                    <option value="18">Cabana</option>
-                                                    <option value="19">Adjoining rooms</option>
-                                                    <option value="20">Adjacent rooms</option>
-                                                    <option value="21">Villa</option>
-                                                    <option value="22">Executive Floor</option>
-                                                    <option value="23">Smoking room</option>
-                                                    <option value="24">Non-Smoking Room</option>
+                                                    <option>Select Type</option>
+                                                    {% for i in rooms %}
+                                                        <option value="{{i.category}}" >{{i.category}}</option>
+                                                    
+                                                    {% endfor %}
+                                                    
                                                 </select>
                                             </div>
                                         </div>
