@@ -2,7 +2,10 @@ from django.conf.urls import url
 from adminpage import views
 
 urlpatterns = [
-    url(r'^$', views.adminhome, name="adminhome"),
+    url(r'^$', views.adminlogin, name="adminlogin"),
+    url(r'^adminregister/$', views.adminregister, name="adminregister"),
+    url(r'^logout/$', views.logoutPage, name = "logout"),
+    url(r'^adminhome/$', views.adminhome, name="adminhome"),
     url(r'^add_asset/$', views.add_asset, name="add_asset"),
     url(r'^add_booking/$', views.add_booking, name="add_booking"),
     url(r'^add_customer/$', views.add_customer, name="add_customer"),

@@ -80,7 +80,8 @@
                             <h3 class="title stroke-shape">Your Reservation</h3>
                             <div class="sidebar-widget-item">
                                 <div class="contact-form-action">
-                                    <form action="#">
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
                                         <div class="input-box">
                                             <label class="label-text">Check-in</label>
                                             <div class="form-group">

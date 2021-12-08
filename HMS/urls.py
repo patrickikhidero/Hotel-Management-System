@@ -19,7 +19,7 @@ urlpatterns = [
     url(r'^payment_received/$', views.payment_received, name="payment_received"),
     url(r'^room_details/$', views.room_details, name="room_details"),
     url(r'^room-grid/$', views.room_grid, name="room_grid"),
-    url(r'^user_dashboard_booking/$', views.user_dashboard_booking, name="user_dashboard_booking"),
+    url(r'^user_dashboard_booking/<pk>$', views.user_dashboard_booking, name="user_dashboard_booking"),
     url(r'^user_dashboard_profile/$', views.user_dashboard_profile, name="user_dashboard_profile"),
     url(r'^user_dashboard_settings/$', views.user_dashboard_settings, name="user_dashboard_settings"),
     url(r'^user_dashboard/$', views.user_dashboard, name="user_dashboard"),
@@ -29,7 +29,7 @@ urlpatterns = [
     url(r'^logout/$', views.logoutUser, name = "logout"),
     url(r'^receptionist/$', views.receptionist, name = "receptionist"),
     url(r'^initiate_payment/$', views.initiate_payment, name = "initiate_payment"),
-    path('<str:ref>/', views.verify_payment, name="verify_payment")
+    # path('<str:ref>/', views.verify_payment, name="verify_payment")
 
 ]
 

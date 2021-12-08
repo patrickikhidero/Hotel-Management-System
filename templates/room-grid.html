@@ -147,7 +147,7 @@
                             <div class="card-img-carousel carousel-action carousel--action">
                                 <div class="card-img">
                                     <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
+                                        <img src="{{room.room_pic.url}}" alt="hotel-img">
                                     </a>
                                 </div>
                                 <div class="card-img">
@@ -172,7 +172,7 @@
                                 <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
                                 <div class="card-attributes pt-3 pb-4">
                                     <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
+                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>{{room.beds}} Beds</span></li>
                                         <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
                                         <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
                                     </ul>
