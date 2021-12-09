@@ -11,7 +11,7 @@ class CustomerForm(ModelForm):
     class Meta:
         model = Customer
         fields = '__all__'
-        exclude = ('user','email_varified',)
+        exclude = ('user','email_verified',)
 
 class UserDetail(DetailView):
     models = User

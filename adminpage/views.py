@@ -9,10 +9,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import  User
 import requests
-from .models import * 
+from .models import Admins 
 from HMS.models import * 
 from . import forms
-from .forms import CreateUserForm
+from .forms import AdminForm, BookingForm, CreateAdminForm
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user, allowed_users, admin_only
@@ -38,9 +38,9 @@ def adminlogin(request):
 
 
 def adminregister(request):
-    form = CreateUserForm()
+    form = CreateAdminForm()
     if request.method == "POST":
-        form = CreateUserForm(request.POST)
+        form = CreateAdminForm(request.POST)
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
@@ -80,16 +80,26 @@ def adminhome(request):
     room_status = RoomStatus.objects.all()
     total_bookings = bookings.filter().count()
     total_customer = customers.filter().count()
+    total_rooms = rooms.filter().count()
     total_pendings = room_status.filter(status='Pending').count()
     total_available = room_status.filter(status='Expired').count()
     # total_availble_rooms = room_status.filter(status='').count()
-    return render(request, 'receptionist/templates/index.html', {'total_customer': total_customer, 'payment': payment, 'bookings': bookings, 'rooms': rooms,  'total_bookings': total_bookings, 'total_available':total_available, 'total_pendings':total_pendings})
+    return render(request, 'receptionist/templates/index.html', {'total_rooms':total_rooms,'total_customer': total_customer, 'payment': payment, 'bookings': bookings, 'rooms': rooms,  'total_bookings': total_bookings, 'total_available':total_available, 'total_pendings':total_pendings})
 
 def add_asset(request):
     return render(request, 'receptionist/templates/add-asset.html')
 
+
+@login_required(login_url='login')
+# @admin_only
+@allowed_users(allowed_roles=['admins'])
 def add_booking(request):
-    return render(request, 'receptionist/templates/add-booking.html')
+    
+            
+    context = {}
+    return render(request, 'receptionist/templates/add-booking.html', context)
+
+
 
 def add_customer(request):
     return render(request, 'receptionist/templates/add-customer.html')
@@ -101,7 +111,7 @@ def add_room(request):
     return render(request, 'receptionist/templates/add-room.html')
 
 def add_role(request):
-    return render(request, 'receptionist/templates/add-room.html')
+    return render(request, 'receptionist/templates/add-role.html')
 
 def add_staff(request):
     return render(request, 'receptionist/templates/add-staff.html')
@@ -132,3 +142,52 @@ def edit_staff(request):
 def edit_salary(request):
     return render(request, 'receptionist/templates/edit-salary.html')
 
+def profile(request):
+    return render(request, 'receptionist/templates/profile.html')
+
+
+def all_booking(request):
+    users = User.objects.all()
+    customers = Customer.objects.all()
+    bookings = Booking.objects.all()
+    rooms = Room.objects.all()
+    payment = Payment.objects.all()
+    room_status = RoomStatus.objects.all()
+    total_bookings = bookings.filter().count()
+    total_customer = customers.filter().count()
+    total_rooms = rooms.filter().count()
+    total_pendings = room_status.filter(status='Pending').count()
+    total_available = room_status.filter(status='Expired').count()
+    # total_availble_rooms = room_status.filter(status='').count()
+    return render(request, 'receptionist/templates/all-booking.html', {'total_rooms':total_rooms,'total_customer': total_customer, 'payment': payment, 'bookings': bookings, 'rooms': rooms,  'total_bookings': total_bookings, 'total_available':total_available, 'total_pendings':total_pendings})
+    
+
+def all_customer(request):
+    users = User.objects.all()
+    customers = Customer.objects.all()
+    payment = Payment.objects.all()
+    room_status = RoomStatus.objects.all()
+    total_customer = customers.filter().count()
+    total_pendings = room_status.filter(status='Pending').count()
+    total_available = room_status.filter(status='Expired').count()
+    # total_availble_rooms = room_status.filter(status='').count()
+    return render(request, 'receptionist/templates/all-customer.html', {'users':users,'customers':customers,'total_customer': total_customer, 'total_available':total_available, 'total_pendings':total_pendings})
+    
+def all_rooms(request):
+    rooms = Room.objects.all()
+    room_status = RoomStatus.objects.all()
+    total_rooms = rooms.filter().count()
+    total_pendings = room_status.filter(status='Pending').count()
+    total_available = room_status.filter(status='Expired').count()
+    # total_availble_rooms = room_status.filter(status='').count()
+    return render(request, 'receptionist/templates/all-rooms.html', {'total_rooms':total_rooms, 'rooms': rooms, 'total_available':total_available, 'total_pendings':total_pendings})
+    
+def all_staff(request):
+    return render(request, 'receptionist/templates/all-staff.html')
+
+
+def profile(request):
+    return render(request, 'receptionist/templates/profile.html')
+
+def settings(request):
+    return render(request, 'receptionist/templates/settings.html')

@@ -50,7 +50,7 @@ class Receptionist(models.Model):
     
     
     def __str__(self): 
-        return f'{self.first_name} {self.last_name} is a {self.gender} receptions' 
+        return f'{self.first_name} {self.last_name}' 
         
         
 class Room(models.Model): 
@@ -60,7 +60,7 @@ class Room(models.Model):
         ('Private Room', 'Private Room'), 
         ('Suites', 'Suites'),
     ]
-    numbers = models.IntegerField(default = 0)
+    room_number = models.CharField(default = 0, max_length=100)
     category = models.CharField(max_length=24, default = 0, choices=room_types) 
     beds = models.IntegerField(default=0)
     capacity =  models.IntegerField(default=0)
@@ -68,7 +68,9 @@ class Room(models.Model):
     room_pic = models.ImageField(null=True, blank=True)
   
     def __str__(self): 
-        return f'{self.category} with {self.beds}bed(s), and {self.capacity} occupant(s). Cost is {self.amount}' 
+        return f'Room {self.room_number}, {self.category} {self.beds}beds, Capacity of {self.capacity} occupants. Price {self.amount}'
+        # return f'self.category, self.beds, self.capacity, self.amount
+
 
 class Payment(models.Model) : 
     # user = models.ForeignKey(User, default = 0, on_delete=models.CASCADE)
@@ -121,7 +123,7 @@ class RoomStatus(models.Model) :
     updated_at = models.DateTimeField(auto_now=True) 
     
     def __str__(self) : 
-        return f'{self.room} is currently {self.status}'
+        return f'{self.status}'
 
 class Booking(models.Model):
     locating = [ 
@@ -135,10 +137,10 @@ class Booking(models.Model):
     location = models.CharField(max_length=50, default = 0, choices=locating)
     check_in = models.DateTimeField(default = datetime.now, blank = True)
     check_out = models.DateTimeField(default = datetime.now, blank = True)
-    payment_id = models.ForeignKey(Payment, on_delete=models.CASCADE, null=True) 
+    # payment_id = models.ForeignKey(Payment, default=0, on_delete=models.CASCADE, null=True) 
     status = models.ForeignKey(RoomStatus, on_delete=models.CASCADE, null=True) 
     def __str__(self):
-        return f'{self.user} has booked {self.room} located at {self.location}'
+        return f'{self.user} {self.room} {self.status}'
         
 class Reservation(models.Model) : 
     id = models.UUIDField(unique=True, primary_key=True, default=uuid.uuid4, editable=False) 
