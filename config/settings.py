@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url 
+import django_heroku
 
 from django.conf.urls import static
 
@@ -29,6 +30,9 @@ SECRET_KEY = 'django-insecure-l#4@%w6e=j(b@lfm8*5+$g6-xy^!_*#2wfl3w@wlx$ql!-k-6j
 DEBUG = True
 
 ALLOWED_HOSTS = ['hms-app-main.herokuapp.com']
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
 
 # Application definition
 
