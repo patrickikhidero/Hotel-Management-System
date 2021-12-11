@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container py-5 my-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto pt-5">
+           <h3 class="py-4">
+             {{room_name}} | ${{room_price}} Per Night
+           </h3>
+            <form action="/payment/" class="" method="POST">
+                {%csrf_token%}
+                {{form|crispy}}
+                <input type="hidden" name="user" value={{request.user}}>
+               <div class="py-3">
+                    <button class="btn btn-primary btn-block">Book</button>
+               </div>
+            </form>
+        </div>
+         <!-- <div class="col-md-4   mt-5 pt-4">
+             <div class="mt-4">
+                <h2> Amount : <strong id="show_amount"></strong></h2>
+             </div>
+         </div> -->
+    </div>
+</div>
+{% endblock %}
