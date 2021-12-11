@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l#4@%w6e=j(b@lfm8*5+$g6-xy^!_*#2wfl3w@wlx$ql!-k-6j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -156,8 +156,6 @@ STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
 WHITENOISE_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-# prod_db  =  dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(prod_db)
 
 
 # Activate Django-Heroku.
