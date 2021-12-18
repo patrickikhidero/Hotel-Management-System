@@ -1,0 +1,29 @@
+{% load static %}
+<div class="sidebar-nav">
+    <div class="sidebar-nav-body">
+        <div class="side-menu-close">
+            <i class="la la-times"></i>
+        </div><!-- end menu-toggler -->
+        <div class="author-content">
+            <div class="d-flex align-items-center">
+                <div class="author-img avatar-sm">
+                    <img src="{{request.user.customer.profile_pic.url}}" alt="testimonial image">
+                </div>
+                <div class="author-bio">
+                    <h4 class="author__title">{{request.user}}</h4>
+                    <span class="author__meta">Member Since May 2017</span>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-menu-wrap">
+            <ul class="sidebar-menu list-items">
+                <li class="page-active"><a href="{% url 'user_dashboard' %}"><i class="la la-dashboard mr-2"></i>Dashboard</a></li>
+                <li><a href="{% url 'user_dashboard_booking' %}"><i class="la la-shopping-cart mr-2 text-color"></i>My Booking</a></li>
+                <li><a href="{% url 'user_dashboard_profile' %}"><i class="la la-user mr-2 text-color-2"></i>My Profile</a></li>
+                <li><a href="{% url 'room_grid' %}"><i class="la la-book mr-2 text-color-3"></i>Book a Room</a></li>
+                <li><a href="{% url 'user_dashboard_settings' %}"><i class="la la-cog mr-2 text-color-5"></i>Settings</a></li>
+                <li><a href="{% url 'logout' %}"><i class="la la-power-off mr-2 text-color-6"></i>Logout</a></li>
+            </ul>
+        </div><!-- end sidebar-menu-wrap -->
+    </div>
+</div><!-- end sidebar-nav -->

@@ -42,10 +42,23 @@
                             <form action="#" class="row">
                                 <div class="col-lg-3 pr-0">
                                     <div class="input-box">
-                                        <label class="label-text">Destination / Hotel name</label>
+                                        <label class="label-text">Destination</label>
                                         <div class="form-group">
-                                            <span class="la la-map-marker form-icon"></span>
-                                            <input class="form-control" type="text" placeholder="Enter City or property">
+                                            <div class="select-contain select-contain-shadow w-auto">
+                                                <select class="select-contain-select">
+                                                    <option value="0">Select Type</option>
+                                                    <option value="1">Owerri, Nigeria</option>
+                                                    <option value="2">Lagos, Nigeria</option>
+                                                    <option value="3">Abuja, Nigeria</option>
+                                                    <option value="4">Los Angeles, USA</option>
+                                                    <option value="5">Berlin, Germany</option>
+                                                    <option value="6">Edmonton, Canada</option>
+                                                    <option value="7">Paris, France</option>
+                                                    <option value="8">Cote D'ivore, Abidjan</option>
+                                                    <option value="9">Accra, Ghana</option>
+                                                    <option value="10">Rabat, Morocco</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div><!-- end col-lg-3 -->
@@ -64,31 +77,12 @@
                                         <div class="form-group">
                                             <div class="select-contain select-contain-shadow w-auto">
                                                 <select class="select-contain-select">
-                                                    <option value="0">Select Type</option>
-                                                    <option value="1">Single</option>
-                                                    <option value="2">Double</option>
-                                                    <option value="3">Triple</option>
-                                                    <option value="4">Quad</option>
-                                                    <option value="5">Queen</option>
-                                                    <option value="6">King</option>
-                                                    <option value="7">Twin</option>
-                                                    <option value="8">Double-double</option>
-                                                    <option value="9">Studio</option>
-                                                    <option value="10">Suite</option>
-                                                    <option value="11">Mini Suite</option>
-                                                    <option value="12">President Suite</option>
-                                                    <option value="13">President Suite</option>
-                                                    <option value="14">Apartments</option>
-                                                    <option value="15">Connecting rooms</option>
-                                                    <option value="16">Murphy Room</option>
-                                                    <option value="17">Accessible Room</option>
-                                                    <option value="18">Cabana</option>
-                                                    <option value="19">Adjoining rooms</option>
-                                                    <option value="20">Adjacent rooms</option>
-                                                    <option value="21">Villa</option>
-                                                    <option value="22">Executive Floor</option>
-                                                    <option value="23">Smoking room</option>
-                                                    <option value="24">Non-Smoking Room</option>
+                                                    <option>Select Type</option>
+                                                    {% for i in rooms %}
+                                                        <option value="{{i.category}}" >{{i.category}}</option>
+                                                    
+                                                    {% endfor %}
+                                                    
                                                 </select>
                                             </div>
                                         </div>
@@ -826,7 +820,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="contact-form-action">
-                        <form method="post">
+                        <form action = "/" method="POST">
+                            {% csrf_token %}
                             <div class="input-box">
                                 <label class="label-text">Username</label>
                                 <div class="form-group">

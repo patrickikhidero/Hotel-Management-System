@@ -47,6 +47,7 @@
 ================================= -->
 <section class="card-area section--padding">
     <div class="container">
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="filter-wrap margin-bottom-40px">
@@ -58,12 +59,16 @@
                                         All
                                     </a>
                                 </li>
+                                {% for i in rooms %}
+                                
                                 <li class="nav-item">
                                     <a class="nav-link" id="dorm-beds-tab" data-toggle="tab" href="#dorm-beds" role="tab" aria-controls="dorm-beds" aria-selected="false">
-                                        Dorm Beds
+                                        {{i.category}}
                                     </a>
                                 </li>
-                                <li class="nav-item">
+
+                                {% endfor %}
+                                <!-- <li class="nav-item">
                                     <a class="nav-link" id="private-room-tab" data-toggle="tab" href="#private-room" role="tab" aria-controls="private-room" aria-selected="false">
                                         Private Room
                                     </a>
@@ -72,25 +77,30 @@
                                     <a class="nav-link" id="suites-tab" data-toggle="tab" href="#suites" role="tab" aria-controls="suites" aria-selected="false">
                                         Suites
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </div><!-- end section-tab -->
                     </div>
                 </div><!-- end filter-wrap -->
             </div><!-- end col-lg-12 -->
         </div><!-- end row -->
+
+
+        
         <div class="tab-content" id="may-tabContent4">
             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                 <div class="row">
+
+                    {% for i in rooms %}
                     <div class="col-lg-6">
                         <div class="card-item room-card">
                             <div class="card-img-carousel carousel-action carousel--action">
                                 <div class="card-img">
                                     <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img5.jpg' %}" alt="hotel-img">
+                                        <img src="{{i.room_pic.url}}" alt="hotel-img">
                                     </a>
                                 </div>
-                                <div class="card-img">
+                                <!-- <div class="card-img">
                                     <a href="{% url 'room_details' %}" class="d-block">
                                         <img src="{% static 'images/img29.jpg' %}" alt="hotel-img">
                                     </a>
@@ -99,22 +109,21 @@
                                     <a href="{% url 'room_details' %}" class="d-block">
                                         <img src="{% static 'images/img30.jpg' %}" alt="hotel-img">
                                     </a>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="card-body">
                                 <div class="card-price pb-2">
                                     <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$88.00</span>
+                                        <span class="price__num">NGN {{i.amount}}</span>
                                     </p>
                                 </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Premium Lake View Room</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
+                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">{{i.category}}</a></h3>
+                                <p class="card-text pt-2">{{i.category}}</p>
                                 <div class="card-attributes pt-3 pb-4">
                                     <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
+                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>{{i.beds}} Beds</span></li>
+                                        <li class="d-flex align-items-center"><i class="la la-user"></i><span>{{i.capacity}} People</span></li>
+                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>{{i.numbers}} Bathrooms</span></li>
                                     </ul>
                                 </div>
                                 <div class="card-btn">
@@ -123,262 +132,22 @@
                             </div>
                         </div><!-- end card-item -->
                     </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$45.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Standard 2 Bed Male Dorm</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Deluxe King Bed Private</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Premium Lake View Suite</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Superior Room</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Superior Room</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
+
+                    {% endfor %}
                 </div><!-- end row -->
             </div>
+
+
             <div class="tab-pane fade" id="dorm-beds" role="tabpanel" aria-labelledby="dorm-beds-tab">
                 <div class="row">
+                    {% for room in rooms %}
+                    {% if room.category == 'Private Room' %}
                     <div class="col-lg-6">
                         <div class="card-item room-card">
                             <div class="card-img-carousel carousel-action carousel--action">
                                 <div class="card-img">
                                     <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Premium Lake View Suite</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
+                                        <img src="{{room.room_pic.url}}" alt="hotel-img">
                                     </a>
                                 </div>
                                 <div class="card-img">
@@ -399,11 +168,11 @@
                                         <span class="price__num">$145.00</span>
                                     </p>
                                 </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Superior Room</a></h3>
+                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">{{room.category}}</a></h3>
                                 <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
                                 <div class="card-attributes pt-3 pb-4">
                                     <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
+                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>{{room.beds}} Beds</span></li>
                                         <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
                                         <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
                                     </ul>
@@ -414,180 +183,22 @@
                             </div>
                         </div><!-- end card-item -->
                     </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img5.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img29.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img30.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$88.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Premium Lake View Room</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$45.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Standard 2 Bed Male Dorm</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Deluxe King Bed Private</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Superior Room</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
+                    {% endif %}
+                    {% endfor %}
                 </div><!-- end row -->
             </div>
-            <div class="tab-pane fade" id="private-room" role="tabpanel" aria-labelledby="private-room-tab">
+
+
+            <div class="tab-pane fade" id="dorm-beds" role="tabpanel" aria-labelledby="private-room-tab">
                 <div class="row">
+                    {% for room in rooms %}
+                    {% if room.category == 'Dorm Beds' %}
                     <div class="col-lg-6">
                         <div class="card-item room-card">
                             <div class="card-img-carousel carousel-action carousel--action">
                                 <div class="card-img">
                                     <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img5.jpg' %}" alt="hotel-img">
+                                        <img src="{{j.room_pic.url}}" alt="hotel-img">
                                     </a>
                                 </div>
                                 <div class="card-img">
@@ -608,7 +219,7 @@
                                         <span class="price__num">$88.00</span>
                                     </p>
                                 </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Premium Lake View Room</a></h3>
+                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">{{room.category}}</a></h3>
                                 <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
                                 <div class="card-attributes pt-3 pb-4">
                                     <ul class="d-flex align-items-center">
@@ -623,211 +234,8 @@
                             </div>
                         </div><!-- end card-item -->
                     </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$45.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Standard 2 Bed Male Dorm</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Deluxe King Bed Private</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Premium Lake View Suite</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Superior Room</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Superior Room</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
+                    {% endif %}
+                    {% endfor %}
                 </div><!-- end row -->
             </div>
             <div class="tab-pane fade" id="suites" role="tabpanel" aria-labelledby="suites-tab">
@@ -873,211 +281,7 @@
                             </div>
                         </div><!-- end card-item -->
                     </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Deluxe King Bed Private</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img5.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img29.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img30.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$88.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Premium Lake View Room</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Premium Lake View Suite</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Superior Room</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card-item room-card">
-                            <div class="card-img-carousel carousel-action carousel--action">
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img31.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img32.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                                <div class="card-img">
-                                    <a href="{% url 'room_details' %}" class="d-block">
-                                        <img src="{% static 'images/img33.jpg' %}" alt="hotel-img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-price pb-2">
-                                    <p>
-                                        <span class="price__from">From</span>
-                                        <span class="price__num">$145.00</span>
-                                    </p>
-                                </div>
-                                <h3 class="card-title font-size-26"><a href="{% url 'room_details' %}">Superior Room</a></h3>
-                                <p class="card-text pt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores commodi deleniti hic inventore laboriosam laborum molestias, non odit quaerat! Aperiam culpa facilis fuga impedit.</p>
-                                <div class="card-attributes pt-3 pb-4">
-                                    <ul class="d-flex align-items-center">
-                                        <li class="d-flex align-items-center"><i class="la la-bed"></i><span>2 Beds</span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-building"></i><span>24 ft<sup>2</sup></span></li>
-                                        <li class="d-flex align-items-center"><i class="la la-bathtub"></i><span>2 Bathrooms</span></li>
-                                    </ul>
-                                </div>
-                                <div class="card-btn">
-                                    <a href="{% url 'room_details' %}" class="theme-btn theme-btn-transparent">Book Now</a>
-                                </div>
-                            </div>
-                        </div><!-- end card-item -->
-                    </div><!-- end col-lg-6 -->
+                    
                 </div><!-- end row -->
             </div>
         </div>
@@ -1108,8 +312,9 @@
                     </div><!-- end section-heading -->
                     <div class="contact-form-action padding-top-40px">
                         <form action="#">
+                            {% csrf_token %}
                             <div class="row">
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <div class="input-box">
                                         <label class="label-text">Check-in</label>
                                         <div class="form-group">
@@ -1117,8 +322,8 @@
                                             <input class="date-range form-control" type="text" name="daterange-single" readonly>
                                         </div>
                                     </div>
-                                </div><!-- end col-lg-3 -->
-                                <div class="col-lg-3">
+                                </div><!-- end col-lg-2 -->
+                                <div class="col-lg-2">
                                     <div class="input-box">
                                         <label class="label-text">Check-out</label>
                                         <div class="form-group">
@@ -1126,34 +331,40 @@
                                             <input class="date-range form-control" type="text" name="daterange-single" readonly>
                                         </div>
                                     </div>
-                                </div><!-- end col-lg-3 -->
-                                <div class="col-lg-3">
+                                </div><!-- end col-lg-2 -->
+                                <div class="col-lg-2">
+                                    <div class="input-box">
+                                        <label class="label-text">Destination</label>
+                                        <div class="form-group">
+                                            <div class="select-contain w-auto">
+                                                <select class="select-contain-select">
+                                                    <option> Select Rooms</option>
+                                                    {% for i in rooms %}
+                                                        <option value="{{i.category}}" >{{i.category}}</option>
+                                                    
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end col-lg-2 -->
+                                <div class="col-lg-2">
                                     <div class="input-box">
                                         <label class="label-text">Rooms</label>
                                         <div class="form-group">
                                             <div class="select-contain w-auto">
                                                 <select class="select-contain-select">
-                                                    <option value="0">Select Rooms</option>
-                                                    <option value="1" selected>1 Room</option>
-                                                    <option value="2">2 Rooms</option>
-                                                    <option value="3">3 Rooms</option>
-                                                    <option value="4">4 Rooms</option>
-                                                    <option value="5">5 Rooms</option>
-                                                    <option value="6">6 Rooms</option>
-                                                    <option value="7">7 Rooms</option>
-                                                    <option value="8">8 Rooms</option>
-                                                    <option value="9">9 Rooms</option>
-                                                    <option value="10">10 Rooms</option>
-                                                    <option value="11">11 Rooms</option>
-                                                    <option value="12">12 Rooms</option>
-                                                    <option value="13">13 Rooms</option>
-                                                    <option value="14">14 Rooms</option>
+                                                    <option value="" selected> Select Rooms</option>
+                                                    {% for i in rooms %}
+                                                        <option value="{{i.category}}" >{{i.category}}</option>
+                                                    
+                                                    {% endfor %}
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                </div><!-- end col-lg-3 -->
-                                <div class="col-lg-3">
+                                </div><!-- end col-lg-2 -->
+                                <div class="col-lg-2">
                                     <div class="input-box">
                                         <label class="label-text">Guests</label>
                                         <div class="form-group">
@@ -1238,6 +449,7 @@
                 <div class="modal-body">
                     <div class="contact-form-action">
                         <form method="post">
+                            {% csrf_token %}
                             <div class="input-box">
                                 <label class="label-text">Username</label>
                                 <div class="form-group">
@@ -1303,6 +515,7 @@
                 <div class="modal-body">
                     <div class="contact-form-action">
                         <form method="post">
+                            {% csrf_token %}
                             <div class="input-box">
                                 <label class="label-text">Username</label>
                                 <div class="form-group">
@@ -1362,6 +575,7 @@
                 <div class="modal-body">
                     <div class="contact-form-action">
                         <form action="#">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="input-box">
